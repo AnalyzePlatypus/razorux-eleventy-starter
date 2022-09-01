@@ -1,0 +1,45 @@
+{% include 'components/app.njk' %}
+
+<section class='p-16' :class='{"opacity-60": modalIsOpen}' class='transition-all'>
+	<div class="grid auto-row-fr justify-center items-center gap-8 p-6 pt-0 lg:w-3/4 lg:mx-auto game-grid">
+	
+		{% for game in (games | rejectattr('hideFromPackageList')) %}
+		
+			<div
+			class='group block bg-white p-1 shadow-xl hover:shadow-md justify-self-center min-w-fit  w-fit hover:scale-105'
+			style='clip-path: polygon(90% 0%, 100% 10%, 100% 100%, 10% 100%, 0% 90%, 0 0);'>
+				<button 
+			  	type='button'
+					class="block relative overflow-hidden "
+					style='clip-path: polygon(0 0, 90% 0%, 100% 10%, 100% 100%, 100% 100%, 10% 100%, 0% 90%, 0 0);'
+					@click="openModal({{ game.id }})"
+					>
+					
+					{% if game.imageUrl %}
+						<div class='filter saturate-40 brightness-110 bg-gray-100'>
+							<img src='images/games/{{game.imageUrl}}' height='300' width='300' class=''></img>
+						</div>
+						
+					{% else %}
+						<div class='relative bg-gray-100'>
+							<div class='z-10 absolute block inset-0 flex flex-col justify-center items-center'>
+								<p class='align-middle text-center text-xl text-gray-400 text-semibold' >No image</p>
+							</div>
+							<img src='/img/games/game13.jpg @600.jpg' height='300' width='300' class='opacity-0'></img>
+						</div>
+					{% endif %}
+					
+					<div class='absolute z-10 bg-blue-500 opacity-30 bg-blend-multiply inset-0 group-hover:opacity-50' style='content: " ";'></div>
+					
+					<div class='absolute z-20 bottom-0 inset-x-0 opacity-50 bg-gradient-to-t from-black bottom w-full h-32' style='content: " ";'></div>
+					
+					<h3 class='absolute z-30 bottom-4 left-8 text-white font-semibold text-2xl filter drop-shadow-sm leading-tight'>{{game.title}}</h3>
+				</button>
+				
+			</div>
+		
+		{% endfor %}
+		
+		
+	</div>
+</section>

@@ -7,6 +7,9 @@ module.exports = {
         change: 'black',
       },
     },
+    fontFamily: {
+      sans: ['Barlow', 'sans-serif'],
+    },
   },
   plugins: [],
 }

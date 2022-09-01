@@ -1,0 +1,15 @@
+id,title,priceUSD,imageUrl,demoVideoYouTubeId,description,placement,requiredArea,otherRequirements,power,throughput,setupTime,ages
+9,Mega Batting Cages,"$1,150.00",game6_2.jpg,yakM7fUEQOY,"Our most popular attraction! 
+Up to three mega-sized batting cages complete with a powerful pitching system!",Outdoor only,65 by 20 each. (200x60 for all 3 cages),None,Generator included,30,1 hour per batting cage,Children and adults
+11,Fireballin',"$1,500.00",game0.jpg,JdWphovfj1s,,Indoor/Outdoor,18 by 12,None,Generator included,240,1.5 hours,Children and adults
+8,Homerun Derby,$950.00,game12.jpg,OmoUBLDppXo,,Outdoor only,Baseball field,None,Generator included,60,30 minutes,Adults only
+12,3-point Shootout,"$1,050.00",game11.jpg,UEvTbDXcAfE,,Indoor/Outdoor,Basketball court with 3 point line,Requires basketball court,Generator included,60,30 minutes,Children and adults
+1,Quarterback Challenge,$495.00,game2.jpg,zD1k45bHEq4,,Indoor/Outdoor,30 by 15,None,Generator included,150,20 minutes,Children only
+2,Football Showdown,$895.00,game1_2.jpg,6RcTM9cMjkg,,Indoor/Outdoor,60 by 20,Needs good ventilation if smoke machine is used indoors,Generator included,100,1 hour,Children and adults
+3,40 Yard Dash,$750.00,game7_2.jpg,NUDUpoPTYB4,,Outdoor only,160 by 12,Grass or turf,Generator included,180,1.5 hours,Children and adults
+4,Vertical Jump,$395.00,game3.jpg,QI28LlHcT4M,,Indoor/Outdoor,5 by 5,None,Generator included,75,30 minutes,Children and adults
+14,Hang Time,$850.00,game13_2.jpg,,,Indoor/Outdoor,5 by 5,None,Generator included,110,30 minutes,Children and adults
+5,Over the Endzone,$895.00,game5.jpg,r635SLXjVwQ,,Indoor/Outdoor,70 by 20,None,Generator included,100,1 hour,Children and adults
+6,Radar Gun Inflatable,$695.00,game9.jpg,vjYW34GPhoA,,Indoor/Outdoor,40 by 15,None,Generator included,160,1 hour,Children and adults
+10,Top Shot Hockey,$750.00,game10_2.jpg,fq_W_Znr0uI,,Indoor/Outdoor,15 by 15,None,Generator included,80,45 minutes,Children and adults
+13,Smart Scoreboard,$500.00,game4_2.jpg,,,Indoor/Outdoor,10 by 10,None,Generator included,N/A,45 minutes,Children and adults

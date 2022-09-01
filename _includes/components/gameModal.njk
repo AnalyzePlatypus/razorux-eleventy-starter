@@ -1,0 +1,49 @@
+<section class='fixed inset-x-0 top-16 transition-all' :class='{
+	"pointer-events-auto opactity-100": modalIsOpen,
+	"opacity-0 scale-99 translate-y-12 pointer-events-none": !modalIsOpen
+	}'>
+	
+	{# <div class='w-full h-56 bg-gradient-to-t from-blue-600 flex flex-col items-center shadow-2xl py-8 opacity-20 shadow-xl'>
+	</div> #}
+	
+	<div class='shadow-2xl bg-white w-10/12 min-h-[600px] mx-auto p-16 pb-12 border-t-2 border-blue-600 flex justify-between'>
+	
+		<div class='pr-12 flex flex-col justify-between'>
+			
+			<div class='mb-6'>
+				<button class='text-blue-700 hover:underline text-lg font-semibold mb-2' @click='closeModal()'>
+		 		‹ Back to all games
+				</button>
+				
+				<h1 class='text-5xl font-bold mb-6' x-text='selectedGame?.title'><h1>
+				<p class='text-slate-500 max-w-xl text-xl' x-text='selectedGame?.description'></p>
+			</div>
+			
+			
+			{% include 'components/gameStats.njk' %}
+		</div>
+		
+		<aside class='w-[700px]'>
+		
+			<div class='relative w-full bg-slate-300 ' style='content: " "; aspect-ratio: 16 / 9;''>
+				<iframe style="position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;" 
+					width="100%" height="100%" frameborder="0" title="Embedded YouTube video"
+					:src="'https://www.youtube-nocookie.com/embed/' + (selectedGame && selectedGame.demoVideoYouTubeId) +'?allowAttrs=&allowfullscreen=true&'"
+					loading="lazy"></iframe>
+			</div>
+			
+			<div class='flex justify-between mt-6'>
+				<div class='w-1/2 bg-slate-300 mr-3' style='content: " "; aspect-ratio: 1 / 1;''>
+					<img :alt="'Image of ' + selectedGame?.title" class="bg-transparent object-cover w-full" loading="lazy" decoding="async"  :src="'/images/games/' + selectedGame?.imageUrl">
+				</div>
+				
+				<div class='w-1/2 bg-slate-300 ml-3' style='content: " "; aspect-ratio: 1 / 1;''>
+					
+				</div>
+				
+			</div>
+			
+		</aside>
+	</div>
+	
+</section>

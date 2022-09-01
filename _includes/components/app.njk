@@ -1,0 +1,38 @@
+<script>
+	GAMES = {% jsonEmbed games %}
+</script>
+
+<script>
+ const MODAL_RESET_TIMEOUT_MS = 1000;
+ 
+	window.addEventListener('alpine:init', function () {
+		Alpine.data('gameGrid', () => ({
+			GAMES,
+			
+			modalIsOpen: false,
+			selectedGameId: undefined,
+			resetModalTimer: undefined,
+		 
+		 openModal(gameId) {
+			 clearTimeout(this.resetModalTimer);
+			 console.log(`openModal(${gameId})`);
+			 
+			 this.selectedGameId = gameId;
+			 this.modalIsOpen = true;
+		 },
+		 
+		 closeModal() {
+			 this.modalIsOpen = false;
+			 
+			 this.resetModalTimer = setTimeout(()=> {
+				 this.selectedGameId = undefined;
+			 },MODAL_RESET_TIMEOUT_MS);
+		 },
+		 
+		 get selectedGame() {
+			return this.GAMES.find(g => g.id == this.selectedGameId);
+		 }
+		 
+		}))
+	}); 
+</script>

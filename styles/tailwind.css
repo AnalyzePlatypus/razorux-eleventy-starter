@@ -7,3 +7,81 @@
     color: black;
   }
 }
+
+html {
+  background: theme(colors.blue.600);
+}
+
+
+::selection {
+  background: theme(colors.blue.600);
+  color: theme(colors.white);
+}
+
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+
+.icon-10xl {
+  height: 8rem;
+}
+
+.icon-9xl {
+  height: 7rem;
+}
+
+.icon-8xl {
+  height: 6rem;
+}
+
+.icon-7xl {
+  height: 5rem;
+}
+
+.icon-6xl {
+  height: 4.5rem;
+}
+
+.icon-5xl {
+  height: 3.25rem;
+}
+
+.icon-4xl {
+  height: 2.75rem;
+}
+
+.icon-3xl {
+  height: 2.25rem;
+}
+
+.icon-2xl {
+  height: 2rem;
+}
+
+.icon-xl {
+  height: 1.75rem;
+}
+
+.icon-lg {
+  height: 1.7rem;
+}
+
+.icon-md {
+  height: 1.5rem;
+}
+
+.icon-sm {
+  height: 1.2rem;
+}
+
+.icon-xs {
+  height: 1rem;
+}
+
+.no-border-right:nth-child(2n) {
+  border: none;
+  @apply pl-12;
+}
