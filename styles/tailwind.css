@@ -83,5 +83,4 @@ html {
 
 .no-border-right:nth-child(2n) {
   border: none;
-  @apply pl-12;
 }

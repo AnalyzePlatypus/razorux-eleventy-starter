@@ -1,9 +1,11 @@
 <script>
 	GAMES = {% jsonEmbed games %}
+	GAME_STATS_CONFIG = {% jsonEmbed gameStats %}
 </script>
 
 <script>
  const MODAL_RESET_TIMEOUT_MS = 1000;
+ const MODAL_PREVENT_CLOSE_TIMEOUT_MS = 250;
  
 	window.addEventListener('alpine:init', function () {
 		Alpine.data('gameGrid', () => ({
@@ -12,21 +14,40 @@
 			modalIsOpen: false,
 			selectedGameId: undefined,
 			resetModalTimer: undefined,
+			preventModalCloseTimer: undefined,
+			preventModalClose: false,
 		 
 		 openModal(gameId) {
 			 clearTimeout(this.resetModalTimer);
+			 this.preventModalClose = true;
+			 
+			 this.preventModalCloseTimer = setTimeout(()=> {
+					this.preventModalClose = false;
+					console.log('Modal close unlocked');
+				}, MODAL_PREVENT_CLOSE_TIMEOUT_MS);
+				
 			 console.log(`openModal(${gameId})`);
 			 
 			 this.selectedGameId = gameId;
 			 this.modalIsOpen = true;
+			 
+			 bodyScrollLock.disableBodyScroll(document.querySelector('#gameModal'));
 		 },
 		 
 		 closeModal() {
+			 console.log('closeModal')
+			 if(this.preventModalClose) {
+				 console.log('Prevent modal close')
+				 return;
+			 }
+			 
 			 this.modalIsOpen = false;
 			 
 			 this.resetModalTimer = setTimeout(()=> {
 				 this.selectedGameId = undefined;
 			 },MODAL_RESET_TIMEOUT_MS);
+			 
+			 bodyScrollLock.enableBodyScroll(document.querySelector('#gameModal'));
 		 },
 		 
 		 get selectedGame() {

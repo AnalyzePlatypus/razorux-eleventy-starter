@@ -1,7 +1,7 @@
 {% extends "_includes/default.njk" %}
 
 {% block content %}
-   <main class='h-full min-h-screen bg-blue-50' x-data='gameGrid'>
+   <main class='h-full min-h-screen bg-blue-50 x-cloak' x-data='gameGrid'>
     {% include 'components/navbar.njk' %} 
     {% include 'components/gameGrid.njk' %}
     {% include 'components/gameModal.njk' %}

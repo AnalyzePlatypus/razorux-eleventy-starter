@@ -24,7 +24,7 @@ module.exports = [
 		iconPath2: "watch",
 		label: "Throughput",
 		valueKey: "throughput",
-		iconColorClasses: "bg-emerald-100 fill-emerald-700"
+		iconColorClasses: "bg-emerald-100 fill-emerald-700",
 	},
 	{
 		iconPath: "/phosphor-icons/regular/lightning.svg",
