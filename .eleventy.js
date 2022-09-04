@@ -65,7 +65,8 @@ async function imageShortcode({src, alt, widths, cssSizes, cssClass = "", style 
   let metadata = await Image('.' + src, {
     formats,
     widths,
-    outputDir: "./_site/img/"
+    urlPath: "/img/generated/",
+    outputDir: "./_site/img/generated/",
   });
 
 

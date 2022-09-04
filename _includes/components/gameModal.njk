@@ -1,6 +1,6 @@
 <button 
 	type='button'
-	class="x-cloak fixed inset-0 bg-gradient-to-br from-blue-600 to-purple-700 z-0 transition-all mix-blend-multiply"
+	class="x-cloak opacity-0 fixed inset-0 bg-gradient-to-br from-blue-600 to-purple-700 z-0 transition-all mix-blend-multiply"
 	:class='{
 		"pointer-events-auto opacity-50": modalIsOpen,
 		"opacity-0 pointer-events-none": !modalIsOpen
@@ -19,7 +19,7 @@
 	
 	
 	
-	<div class='shadow-2xl relative overflow-scroll bg-white w-[95%] 2xl:w-fit min-h-[600px] mx-auto p-6 sm:p-16 pb-12 border-t-2 border-blue-600 flex flex-col sm:flex-row justify-between max-h-screen' @click.outside='closeModal()'>
+	<div class='shadow-2xl relative overflow-scroll bg-white w-[95%] 2xl:w-fit min-h-[600px] mx-auto p-6 sm:p-16 pb-12 border-t-2 border-blue-600 flex flex-col sm:flex-row justify-between max-h-screen' @click.outside='closeModal()' @keyup.escape='closeModal()'>
 
 		<img width='1000px' class='pointer-events-none absolute inset-y-0 opacity-[0.15] -right-[180px] z-0 blur-2xl saturate-150' src='/images/backgrounds/blur_1.svg' />
 		
