@@ -20,23 +20,27 @@
 	
 	
 	
-	<div class='shadow-2xl relative overflow-scroll bg-white w-[95%] 2xl:w-fit min-h-[600px] mx-auto p-6 sm:p-16 pb-12 border-t-2 border-blue-600 flex flex-col sm:flex-row justify-between max-h-screen' @click.outside='closeModal()' @keyup.escape='closeModal()'>
+	<div class='shadow-2xl relative overflow-y-scroll overflow-x-hidden bg-white w-[95%] 2xl:w-fit min-h-[600px] mx-auto p-6 sm:p-16 pb-12 border-t-2 border-blue-600 flex flex-col sm:flex-row justify-between max-h-screen' @click.outside='closeModal()' @keyup.escape='closeModal()'>
+	
+		{# <div class='sticky z-50 top-0 right-0'>
+			<button type='button' class='z-50 bg-white bg-opacity-70 h-fit w-fit backdrop-blur-lg shadow-md absolute right-0 top-0 hover:bg-slate-50 rounded-full p-2' @click='closeModal()'>
+				{{ '/phosphor-icons/regular/x.svg' | svgContents("icon-xl fill-slate-600 hover:fill-slate-700 opacity-50") | safe }}
+			</button>
+		</div> #}
 
 		<img width='1000px' class='pointer-events-none absolute inset-y-0 opacity-[0.15] -right-[180px] z-0 blur-2xl saturate-150' src='/images/backgrounds/blur_1.svg' />
 		
 		
 		<img width='1000px' class='pointer-events-none absolute -inset-bottom-[64px] opacity-10 -left-[64px] z-0 blur-2xl saturate-150' src='/images/backgrounds/blur_1.svg' />
 		
-		<button type='button' class='absolute right-6 top-6 hover:bg-slate-50 rounded-full p-2' @click='closeModal()'>
-			{{ '/phosphor-icons/regular/x.svg' | svgContents("icon-xl fill-slate-600 hover:fill-slate-700 opacity-50") | safe }}
-		</button>
 		
 		<div class='flex flex-col justify-between'>
+			<button class='z-50 text-blue-700 hover:underline sm:text-lg px-6 font-semibold mb-2 border border-blue-70 rounded-full p-1 mx-auto sm:ml-0 md:mr-auto sm:mx-none block md:mb-8 top-0 sticky  bg-white backdrop-blur-lg bg-opacity-80 shadow-md' @click='closeModal()'>
+			 ‹ Back to all games
+			</button>
 			
 			<div class='mb-16 sm:mb-6'>
-				<button class='text-blue-700 hover:underline sm:text-lg px-6 font-semibold mb-2 border border-blue-70 rounded-full p-1 mx-auto sm:ml-0 md:mr-auto sm:mx-none block md:mb-8' @click='closeModal()'>
-		 		‹ Back to all games
-				</button>
+			
 				
 				<h1 class='text-4xl sm:text-5xl font-bold mb-3 sm:mb-4 mt-6 sm:mt-0' x-text='selectedGame?.title'><h1>
 				<p class='text-slate-500 max-w-xl sm:text-xl' x-text='selectedGame?.description'></p>
@@ -77,3 +81,4 @@
 	</div>
 	
 </section>
+
