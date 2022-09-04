@@ -1,3 +1,4 @@
+const Image = require("@11ty/eleventy-img");
 const htmlmin = require('html-minifier')
 
 const now = String(Date.now())
@@ -57,11 +58,38 @@ function youtubeEmbed(id, options) {
 }
 
 
+async function imageShortcode({src, alt, widths, cssSizes, cssClass = "", style = "", hasTransparency = false, attributes = {}}) {
+  if(src === undefined) return "";
+
+  const formats = hasTransparency ? ['avif', 'webp', 'png' ] : ['avif', 'webp', 'jpg', ]
+  let metadata = await Image('.' + src, {
+    formats,
+    widths,
+    outputDir: "./_site/img/"
+  });
+
+
+  let imageAttributes = {
+    alt,
+    class: cssClass || "",
+    style: style || "",
+    sizes: cssSizes,
+    loading: "lazy",
+    decoding: "async",
+    ...attributes,
+  };
+
+  const pictureElementHtml = Image.generateHTML(metadata, imageAttributes);
+
+  return pictureElementHtml;
+}
+
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./styles/tailwind.config.js')
   eleventyConfig.addWatchTarget('./styles/tailwind.css')
   
+  eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
   eleventyConfig.addNunjucksShortcode("youtube",youtubeEmbed);
   eleventyConfig.addNunjucksShortcode("jsonEmbed",jsonEmbed);
   eleventyConfig.addNunjucksShortcode("env", envEmbed);

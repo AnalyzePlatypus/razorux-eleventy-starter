@@ -1,0 +1,11 @@
+<script src="//js.honeybadger.io/v3.2/honeybadger.min.js" type="text/javascript"></script>
+
+<script>
+	if(document.querySelector('meta[name="node_env"][content="production"]')) {
+		Honeybadger.configure({
+			apiKey: "{% env 'HONEYBADGER_API_KEY' %}",
+			environment: "{% env 'NODE_ENV' %}",
+			revision: "{% env 'COMMIT_REF' %}",
+		});
+	}
+</script>

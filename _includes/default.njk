@@ -9,6 +9,12 @@
    
     
     <link rel="stylesheet" href="/style.css?v={% version %}"/>
+     
+    <style>
+      /* Hide Alpine templates until library loads and boots up */
+      [x-cloak] { display: none !important; }
+    </style>
+    
     
     {% block head %}{% endblock %}
     <script defer src="/js/alpine.js?v={% version %}"></script>
@@ -16,12 +22,14 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com"/> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/> 
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet"/>
     
-    <style>
-      /* Hide Alpine templates until library loads and boots up */
-      [x-cloak] { display: none !important; }
-    </style>
+    <meta name='node_env' content='{% env "NODE_ENV" %}'>
+    
+    {% include 'head/honeybadger.njk' %} 
+    {% include 'head/fathom.njk' %} 
+    {% include 'head/seo.njk' %} 
+    {% include 'head/assets-retry.njk' %} 
     
   </head>
   <body>
