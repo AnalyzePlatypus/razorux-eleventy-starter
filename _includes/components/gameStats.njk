@@ -12,7 +12,7 @@
 						{{ stat.iconPath | svgContents("icon-md") | safe }}
 					</div>
 					
-					<dl>
+					<dl class='max-w-[150px]'>
 						<dt class='font-semibold uppercase text-sm text-slate-400 tracking-wider leading-tight'> {{ stat.label }} </dt>
 						<dd class='text-lg text-slate-700 font-semibold leading-tight' x-text='selectedGame && (selectedGame.process ? selectedGame.process(selectedGame["{{stat.valueKey}}"]) : selectedGame["{{stat.valueKey}}"])'> {{ stat.valueKey }} </dd>
 					</dl>

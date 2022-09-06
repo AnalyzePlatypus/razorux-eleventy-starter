@@ -1,0 +1,19 @@
+<div class='w-full flex justify-between mt-12'>
+	<button
+		type='button'
+		class='p-2 px-6 flex flex-col items-start bg-blue-500 bg-opacity-10 transition-all hover:bg-opacity-20 clip-path-caret-left pl-8 hover:-translate-x-1'
+		:class='{"opacity-0": !hasPreviousGame}'
+		@click='visitPreviousGame()'>
+			<p class='uppercase tracking-wide text-sm font-semibold opacity-90'>Previously</p>
+			<h3 class='text-xl font-bold' x-text='previousGame?.title'></h3>
+	</button>
+	
+	<button type='button'
+		class='p-2 px-6 flex flex-col items-start text-white bg-gradient-to-br from-blue-500 to-blue-800 shadow-blue-600/30 shadow-md transition-all hover:brightness-110 hover:shadow-lg hover:translate-x-1 clip-path-caret-right pr-12'
+		:class='{"opacity-0": !hasNextGame}'
+		
+		@click='visitNextGame()'>
+			<p class='uppercase tracking-wide text-sm font-semibold text-blue-100'>Next game</p>
+			<h3 class='text-xl font-bold' x-text='nextGame?.title'></h3>
+	</button>
+</div>

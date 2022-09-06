@@ -24,6 +24,7 @@ Based on https://pagespeedchecklist.com/asynchronous-google-fonts
 
 /* barlow-regular - latin */
 @font-face {
+	font-display: swap;
 	font-family: 'Barlow';
 	font-style: normal;
 	font-weight: 400;
@@ -37,6 +38,7 @@ Based on https://pagespeedchecklist.com/asynchronous-google-fonts
 }
 /* barlow-600 - latin */
 @font-face {
+	font-display: swap;
 	font-family: 'Barlow';
 	font-style: normal;
 	font-weight: 600;
@@ -50,6 +52,7 @@ Based on https://pagespeedchecklist.com/asynchronous-google-fonts
 }
 /* barlow-700 - latin */
 @font-face {
+	font-display: swap;
 	font-family: 'Barlow';
 	font-style: normal;
 	font-weight: 700;
@@ -60,6 +63,10 @@ Based on https://pagespeedchecklist.com/asynchronous-google-fonts
 			 url('../fonts/barlow-v12-latin-700.woff') format('woff'), /* Modern Browsers */
 			 url('../fonts/barlow-v12-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
 			 url('../fonts/barlow-v12-latin-700.svg#Barlow') format('svg'); /* Legacy iOS */
+}
+
+* {
+	font-family: Barlow, system-ui, sans-serif;
 }
 
 </style>

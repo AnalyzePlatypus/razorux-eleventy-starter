@@ -4,6 +4,7 @@ const htmlmin = require('html-minifier')
 const now = String(Date.now())
 
 const svgContents = require("eleventy-plugin-svg-contents");
+const criticalCss = require("eleventy-critical-css");
 
 require('dotenv').config();
 
@@ -95,7 +96,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksShortcode("youtube",youtubeEmbed);
   eleventyConfig.addNunjucksShortcode("jsonEmbed",jsonEmbed);
   eleventyConfig.addNunjucksShortcode("env", envEmbed);
-
+  
+  eleventyConfig.addShortcode('version', function () { return now })
+  
+  
+  eleventyConfig.addPassthroughCopy("images");
+  
   eleventyConfig.addPassthroughCopy({
     './node_modules/alpinejs/dist/cdn.js': './js/alpine.js',
     './node_modules/body-scroll-lock/lib/bodyScrollLock.min.js': './js/bodyScrollLock.js',
@@ -103,13 +109,12 @@ module.exports = function (eleventyConfig) {
   })
   
 
-  eleventyConfig.addShortcode('version', function () {
-    return now
-  })
+  
+  if(process.env.ELEVENTY_PRODUCTION) eleventyConfig.addPlugin(criticalCss);
   
   eleventyConfig.addPlugin(svgContents);
 
-  eleventyConfig.addPassthroughCopy("images");
+  
 
   eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
     if (

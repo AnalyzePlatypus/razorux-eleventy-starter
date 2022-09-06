@@ -96,3 +96,36 @@ html {
   border: none;
 }
 
+.background-pulse {
+  --gradient-ends: theme(colors.slate.300);
+  --gradient-middle: theme(colors.slate.400);
+  background: linear-gradient(135deg, var(--gradient-ends), var(--gradient-middle), var(--gradient-ends));
+  animation: flow 3s infinite;
+  background-size: 200%;
+}
+
+@keyframes flow {
+  0% {
+    background-position: 0 0%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+
+  100% {
+    background-position: 0 0%;
+  }
+}
+
+.clip-path-caret-right {
+  --clip-top-right: 90%;
+  --clip-bottom-right: 90%;
+  clip-path: polygon(var(--clip-top-right) 0%, 100% 50%, var(--clip-bottom-right) 100%, 0% 100%, 0 50%, 0% 0%);
+}
+
+.clip-path-caret-left {
+  --clip-top-left: 10%;
+  --clip-bottom-left: 10%;
+  clip-path: polygon(100% 0, 100% 50%, 100% 100%, var(--clip-bottom-left) 100%, 0 50%,  var(--clip-top-left) 0%);
+}

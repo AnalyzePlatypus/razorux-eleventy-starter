@@ -13,12 +13,12 @@
 			
 			modalIsOpen: false,
 			selectedGameId: undefined,
+			selectedGameIndex: undefined,
 			resetModalTimer: undefined,
 			preventModalCloseTimer: undefined,
 			preventModalClose: false,
 		 
 		 openModal(gameId) {
-			 clearTimeout(this.resetModalTimer);
 			 this.preventModalClose = true;
 			 
 			 this.preventModalCloseTimer = setTimeout(()=> {
@@ -28,8 +28,7 @@
 				
 			 console.log(`openModal(${gameId})`);
 			 
-			 this.selectedGameId = gameId;
-			 this.modalIsOpen = true;
+			 this.visitGame(gameId)
 			 
 			 // bodyScrollLock.disableBodyScroll(document.querySelector('#gameModal'));
 			 window?.fathom?.trackGoal('L6GW2MA7', 0);
@@ -45,15 +44,69 @@
 			 this.modalIsOpen = false;
 			 
 			 this.resetModalTimer = setTimeout(()=> {
-				 this.selectedGameId = undefined;
+				 // Check that the modal hasn't been reopened, and then reset the modal
+				 if(!this.modalIsOpen) {
+						this.selectedGameId = undefined;
+						this.scrollModalToTop(); 
+				 }
+				 
 			 },MODAL_RESET_TIMEOUT_MS);
 			 
 			 bodyScrollLock.enableBodyScroll(document.querySelector('#gameModal'));
 		 },
 		 
+		 visitNextGame() {
+			 this.visitGame(this.nextGame.id);
+		 },
+		 
+		 visitPreviousGame() {
+				this.visitGame(this.previousGame.id);
+		},
+		
+		visitGame(id) {			
+			this.selectedGameId = id;
+			this.modalIsOpen = true;
+			this.scrollModalToTop();
+		},
+		
+		scrollModalToTop() {
+			document.querySelector('#gameModalCard').scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			})
+		},
+		 
+		 get nextGame() {
+			 if(this.hasNextGame) return this.GAMES[this.selectedGameIndex + 1];
+		 },
+		 
+		 get previousGame() {
+				if(this.hasPreviousGame) return this.GAMES[this.selectedGameIndex - 1];
+		 },
+		 
+		 get totalGameCount() {
+			 return this.GAMES.length;
+		 },
+		 
+		 get hasNextGame() {
+			 if(this.selectedGameId == undefined) return false;
+			 return this.selectedGameIndex < (this.totalGameCount - 1);
+		 },
+		 
+		 get hasPreviousGame() {
+				if(this.selectedGameId == undefined) return false;
+				return this.selectedGameIndex > 0;
+		 },
+		 
 		 get selectedGame() {
-			return this.GAMES.find(g => g.id == this.selectedGameId);
-		 }
+			 if(this.selectedGameId == undefined) return;
+			return this.GAMES.find((g) => g.id == this.selectedGameId);
+		 },
+		 
+		 get selectedGameIndex() {
+			 if(this.selectedGameId == undefined) return;
+			 return this.GAMES.findIndex((g) => g.id == this.selectedGameId);
+		 },
 		 
 		}))
 	}); 
