@@ -8,7 +8,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ['Barlow', 'sans-serif'],
+      sans: ['Barlow', 'system-ui', 'sans-serif'],
     },
   },
   plugins: [],

@@ -28,10 +28,10 @@
 			</button>
 		</div> #}
 
-		<img width='1000px' class='pointer-events-none absolute inset-y-0 opacity-[0.15] -right-[180px] z-0 blur-2xl saturate-150' src='/images/backgrounds/blur_1.svg' />
+		<img aria-hidden="true" alt='' width='1000px' class='pointer-events-none absolute inset-y-0 opacity-[0.15] -right-[180px] z-0 blur-2xl saturate-150' src='/images/backgrounds/blur_1.svg' />
 		
 		
-		<img width='1000px' class='pointer-events-none absolute -inset-bottom-[64px] opacity-10 -left-[64px] z-0 blur-2xl saturate-150' src='/images/backgrounds/blur_1.svg' />
+		<img aria-hidden="true" alt='' width='1000px' class='pointer-events-none absolute -inset-bottom-[64px] opacity-10 -left-[64px] z-0 blur-2xl saturate-150' src='/images/backgrounds/blur_1.svg' />
 		
 		
 		<div class='flex flex-col justify-between'>
@@ -61,7 +61,7 @@
 					
 					<div class='flex justify-between mt-6'>
 						<div class='w-1/2 bg-slate-300 mr-3' style='content: " "; aspect-ratio: 1 / 1;''>
-							<img :alt="'Image of ' + selectedGame?.title" class="bg-transparent object-cover w-full" loading="lazy" decoding="async"  :src="selectedGame ? ('/images/games/' + selectedGame?.imageUrl) : ''">
+							<img :class='{  "hidden": !modalIsOpen }' width='300' height='300' :alt="'Image of ' + selectedGame?.title" class="bg-transparent object-cover w-full hidden" loading="lazy" decoding="async"  :src="selectedGame ? ('/images/games/' + selectedGame?.imageUrl) : ''">
 						</div>
 						
 						<div class='w-1/2 bg-emerald-900 ml-3' style='content: " "; aspect-ratio: 1 / 1;''>

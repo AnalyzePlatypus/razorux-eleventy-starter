@@ -19,7 +19,7 @@
 						
 						{% if game.imageUrl %}
 							<div class='filter saturate-40 brightness-110 bg-gray-100'>
-								{% image {src: '/images/games/' + game.imageUrl, alt: "Image of " + game.title + " game", widths: [600, 320, 300, 160], cssSizes: [300, 160], cssClass: 'w-[160px] sm:w-[300px]'} %}
+								{% image {src: '/images/games/' + game.imageUrl, alt: "Image of " + game.title + " game", widths: [600, 320, 300, 160], cssSizes: '(max-width: 639px) 160px, 300px', cssClass: 'w-[160px] sm:w-[300px]'} %}
 								
 								{# <img src='images/games/{{game.imageUrl}}' class='w-[160px] sm:w-[300px]'></img> #}
 							</div>

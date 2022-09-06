@@ -27,6 +27,7 @@ function youtubeEmbed(id, options) {
   options.noCookie = true;
   options.lazy = true;
   options.enableSuggestedVideos = false;
+  options.title = options.title || "Embedded YouTube video";
 
   let out =
     '<div id="' + id + '" ';
