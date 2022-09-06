@@ -110,7 +110,7 @@ module.exports = function (eleventyConfig) {
   
 
   
-  if(process.env.ELEVENTY_PRODUCTION) eleventyConfig.addPlugin(criticalCss);
+  // if(process.env.ELEVENTY_PRODUCTION) eleventyConfig.addPlugin(criticalCss);
   
   eleventyConfig.addPlugin(svgContents);
 
