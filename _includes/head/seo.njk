@@ -1,10 +1,24 @@
-<title>{seo.title}</title>
-<meta name="description" content={seo.description} />
-<meta name="image" content={seo.image} />
+<title>{{ title or seo.title }}</title>
+<meta name="description" content="{{ description or seo.description }}">
+<meta name="image" content="{{seo.imagePath}}" />
+
+<!-- Open Graph / Facebook -->  
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ seo.url }}">
+<meta property="og:title" content="{{ title or seo.title }}">
+<meta property="og:description" content="{{ description or seo.description }}">
+<meta property="og:image" content="{{ seo.imagePath }}">
+		
+		
+		
+<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={seo.title} />
-<meta name="twitter:url" content={seo.url} />
-<meta name="twitter:description" content={seo.description} />
-<meta name="twitter:image" content={seo.image} />
-<meta name="twitter:creator" content={seo.twitterUsername} />
+<meta name="twitter:title" content="{{ title or seo.title }}" />
+<meta name="twitter:url" content="{{seo.url}}" />
+<meta name="twitter:description" content="{{seo.description}}" />
+<meta name="twitter:image" content="{{seo.image}}" />
+<meta name="twitter:creator" content="{{seo.twitterUsername}}" />
+
+<!-- Icons -->
+<link rel="apple-touch-icon" href="{{seo.appleTouchIconPath}}">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🏀</text></svg>" />
