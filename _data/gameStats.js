@@ -40,6 +40,12 @@ module.exports = [
 		iconColorClasses: "bg-orange-100 fill-orange-700"
 	},
 	{
+		iconPath: "/phosphor-icons/regular/screencast.svg",
+		label: "Appears on Scoreboard",
+		valueKey: "appearsOnScoreboard",
+		iconColorClasses: "bg-sky-200 fill-sky-800 bg-opacity-60"
+	},
+	{
 		iconPath: "/phosphor-icons/regular/list-checks.svg",
 		iconPath2: "checkboxList",
 		label: "Other Requirements",

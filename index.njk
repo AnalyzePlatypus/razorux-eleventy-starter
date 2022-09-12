@@ -3,7 +3,7 @@
 {% block content %}
    <main class='h-full relative min-h-screen bg-blue-50 x-cloak' 
       x-data='gameGrid'
-      x-init='document.querySelector("#gameModal").addEventListener("swiped-down", function(e) { closeModal() });'
+      {# x-init='document.querySelector("#gameModal").addEventListener("swiped-down", function(e) { closeModal() });' #}
       @keydown.escape='closeModal()'
       @keydown.left='visitNextGame()'
       @keydown.right='visitNextGame()'
