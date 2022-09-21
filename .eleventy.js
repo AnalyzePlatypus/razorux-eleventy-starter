@@ -125,14 +125,8 @@ async function gameImagesListEmbed() {
   })
   
   const dataObject = Object.fromEntries(gameIDsAndImageURls);
-  console.log(dataObject);
-  
   return JSON.stringify(dataObject);
 }
-
-// Under 628px w it's 47w
-
-
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./styles/tailwind.config.js')
