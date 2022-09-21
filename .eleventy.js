@@ -8,6 +8,16 @@ const criticalCss = require("eleventy-critical-css");
 
 require('dotenv').config();
 
+async function asyncMap(array, callback) {
+  const results = [];
+  for (let index = 0; index < array.length; index++) {
+    results.push(await callback(array[index], index, array));
+  }
+  return results;
+}
+
+const GAMES = require('./_data/games.json');
+
 // Custom plugins
 
 function jsonEmbed(obj) {
@@ -87,12 +97,50 @@ async function imageShortcode({src, alt, widths, cssSizes, cssClass = "", style 
   return pictureElementHtml;
 }
 
+async function getEleventyImage({src, alt, widths, cssSizes, hasTransparency = false, attributes = {}}) {
+  if(src === undefined) return "";
+
+  const formats = hasTransparency ? ['avif', 'webp', 'png' ] : ['avif', 'webp', 'jpg', ]
+  
+  return await Image('.' + src, {
+    formats,
+    widths,
+    urlPath: "/img/generated/",
+    outputDir: "./_site/img/generated/",
+  });
+}
+
+
+async function gameImagesListEmbed() {
+  const gameIDsAndImageURls = await asyncMap(GAMES, async function(g) {
+    return [
+      g.id,
+      await imageShortcode({
+        src: '/images/games/' + g.imageUrl,
+        alt: g.title,
+        widths: [576, 440, 288, 220, 160, 140],
+        cssSizes: '(max-width: 628px) 47w, 288px'
+      })
+    ]
+  })
+  
+  const dataObject = Object.fromEntries(gameIDsAndImageURls);
+  console.log(dataObject);
+  
+  return JSON.stringify(dataObject);
+}
+
+// Under 628px w it's 47w
+
+
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./styles/tailwind.config.js')
   eleventyConfig.addWatchTarget('./styles/tailwind.css')
   
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+  eleventyConfig.addNunjucksAsyncShortcode("gameImagesJsonEmbed", gameImagesListEmbed);
+  
   eleventyConfig.addNunjucksShortcode("youtube",youtubeEmbed);
   eleventyConfig.addNunjucksShortcode("jsonEmbed",jsonEmbed);
   eleventyConfig.addNunjucksShortcode("env", envEmbed);
