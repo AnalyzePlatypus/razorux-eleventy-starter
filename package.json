@@ -16,6 +16,7 @@
     "dotenv": "^16.0.2",
     "eleventy-critical-css": "^1.1.0",
     "eleventy-plugin-svg-contents": "^0.7.0",
+    "google-spreadsheet": "^3.3.0",
     "papaparse": "^5.3.2"
   }
 }
