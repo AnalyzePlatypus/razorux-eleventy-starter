@@ -2,13 +2,15 @@
 <meta name="description" content="{{ description or seo.description }}">
 <meta name="image" content="{{seo.imagePath}}" />
 
+<meta name="theme-color" content="{{ seo.themeColor }}">
+<meta name="msapplication-TileColor" content="{{ seo.themeColor }}">
+
 <!-- Open Graph / Facebook -->  
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ seo.url }}">
 <meta property="og:title" content="{{ title or seo.title }}">
 <meta property="og:description" content="{{ description or seo.description }}">
 <meta property="og:image" content="{{ seo.imagePath }}">
-		
 		
 		
 <!-- Twitter -->
@@ -21,4 +23,9 @@
 
 <!-- Icons -->
 <link rel="apple-touch-icon" href="{{seo.appleTouchIconPath}}">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🏀</text></svg>" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="{{seo.appleTouchIconPath}}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{seo.favicon32Path}}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{seo.favicon16Path}}">
+
+<link rel="manifest" href="/site.webmanifest">
