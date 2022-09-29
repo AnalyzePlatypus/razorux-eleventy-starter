@@ -1,0 +1,17 @@
+[
+	{
+		"label": "About",
+		"url": "/about",
+		"cssClasses": "ml-auto hidden sm:inline-block"
+	},
+	{
+		"label": "Contact",
+		"url": "/contact",
+		"cssClasses": "hidden sm:inline-block"
+	},
+	{
+		"label": "Start Free Trial",
+		"url": "/cta",
+		"cssClasses": "button primary medium"
+	}
+]

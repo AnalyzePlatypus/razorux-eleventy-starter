@@ -1,15 +1,42 @@
+---
+meta:
+  faq:
+    - question: How old are you?
+      answer: 12
+    - question: What is your name?
+      answer: "<p>Joe</p>"
+    - question: What of it?
+      answer: Not much.
+  site:
+    name: Site title
+    description: Site description
+    url: https://example.com
+    logo:
+      src: https://example.com/images/logo.png
+      width: 1200
+      height: 630
+  language: en-US
+  url: https://example.com/page
+  title: Page title
+  description: Page description
+  image:
+    src: https://example.com/images/page.png
+
+---
+
 {% extends "_includes/default.njk" %}
 
 {% block content %}
-   <main class='h-full relative min-h-screen bg-blue-50 x-cloak' 
-      x-data='gameGrid'
-      {# x-init='document.querySelector("#gameModal").addEventListener("swiped-down", function(e) { closeModal() });' #}
-      @keydown.escape='closeModal()'
-      @keydown.left='visitNextGame()'
-      @keydown.right='visitNextGame()'
-      >
-    {% include 'components/navbar.njk' %} 
-    {% include 'components/gameGrid.njk' %}
-    {% include 'components/gameModal.njk' %}
+   <main class='h-full relative min-h-screen bg-slate-100'> 
+      {% include 'components/app.njk'%}
+      {% include 'components/announcement-bar.njk'%}
+      {% include 'components/navbar.njk'%}
+      {% include 'components/hero.njk'%}
+      {# {% include 'components/kitchen-sink.njk'%} #}
+      
+      {% include 'components/mega-bullets.njk'%}
+      {% include 'components/wrapup-cta.njk'%}
+      {% include 'components/faq.njk'%}
+      {% include 'components/footer.njk'%}
    </main>
 {% endblock %}

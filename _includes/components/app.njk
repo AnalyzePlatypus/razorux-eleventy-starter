@@ -1,114 +1,11 @@
 <script>
-	GAMES = {% jsonEmbed games %}
-	GAME_STATS_CONFIG = {% jsonEmbed gameStats %}
-	GAME_IMAGES = {% gameImagesJsonEmbed %}
+	// DATA = {% jsonEmbed data %}
 </script>
 
-<script>
- const MODAL_RESET_TIMEOUT_MS = 1000;
- const MODAL_PREVENT_CLOSE_TIMEOUT_MS = 250;
- 
+<script> 
 	window.addEventListener('alpine:init', function () {
-		Alpine.data('gameGrid', () => ({
-			GAMES,
-			
-			modalIsOpen: false,
-			selectedGameId: undefined,
-			selectedGameIndex: undefined,
-			resetModalTimer: undefined,
-			preventModalCloseTimer: undefined,
-			preventModalClose: false,
-		 
-		 openModal(gameId) {
-			 this.preventModalClose = true;
-			 
-			 this.preventModalCloseTimer = setTimeout(()=> {
-					this.preventModalClose = false;
-					console.log('Modal close unlocked');
-				}, MODAL_PREVENT_CLOSE_TIMEOUT_MS);
-				
-			 console.log(`openModal(${gameId})`);
-			 
-			 this.visitGame(gameId)
-			 
-			 // bodyScrollLock.disableBodyScroll(document.querySelector('#gameModal'));
-			 window?.fathom?.trackGoal('L6GW2MA7', 0);
-		 },
-		 
-		 closeModal() {
-			 console.log('closeModal')
-			 if(this.preventModalClose) {
-				 console.log('Prevent modal close')
-				 return;
-			 }
-			 
-			 this.modalIsOpen = false;
-			 
-			 this.resetModalTimer = setTimeout(()=> {
-				 // Check that the modal hasn't been reopened, and then reset the modal
-				 if(!this.modalIsOpen) {
-						this.selectedGameId = undefined;
-						this.scrollModalToTop(); 
-				 }
-				 
-			 },MODAL_RESET_TIMEOUT_MS);
-			 
-			 bodyScrollLock.enableBodyScroll(document.querySelector('#gameModal'));
-		 },
-		 
-		 visitNextGame() {
-			 this.visitGame(this.nextGame.id);
-		 },
-		 
-		 visitPreviousGame() {
-				this.visitGame(this.previousGame.id);
-		},
-		
-		visitGame(id) {			
-			this.selectedGameId = id;
-			this.modalIsOpen = true;
-			this.scrollModalToTop();
-		},
-		
-		scrollModalToTop() {
-			document.querySelector('#gameModalCard').scrollTo({
-				top: 0,
-				behavior: 'smooth'
-			})
-		},
-		 
-		 get nextGame() {
-			 if(this.hasNextGame) return this.GAMES[this.selectedGameIndex + 1];
-		 },
-		 
-		 get previousGame() {
-				if(this.hasPreviousGame) return this.GAMES[this.selectedGameIndex - 1];
-		 },
-		 
-		 get totalGameCount() {
-			 return this.GAMES.length;
-		 },
-		 
-		 get hasNextGame() {
-			 if(this.selectedGameId == undefined) return false;
-			 return this.selectedGameIndex < (this.totalGameCount - 1);
-		 },
-		 
-		 get hasPreviousGame() {
-				if(this.selectedGameId == undefined) return false;
-				return this.selectedGameIndex > 0;
-		 },
-		 
-		 get selectedGame() {
-			 if(this.selectedGameId == undefined) return;
-			return this.GAMES.find((g) => g.id == this.selectedGameId);
-		 },
-		 
-		 get selectedGameIndex() {
-			 if(this.selectedGameId == undefined) return;
-			 return this.GAMES.findIndex((g) => g.id == this.selectedGameId);
-		 },
-		 
+		Alpine.data('app', () => ({
+
 		}))
 	}); 
 </script>

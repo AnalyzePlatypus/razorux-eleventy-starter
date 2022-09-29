@@ -1,0 +1,29 @@
+<section class='w-full bg-slate-50'>
+	<article class='max-w-6xl mx-auto py-12 sm:py-24 px-6 sm:px-0'>
+		
+		<div class='flex justify-between items-end mb-6'>
+			<div>
+				<h2 class='text-4xl sm:text-6xl font-bold sm:leading-relaxed'>Frequently Asked Questions</h2>
+			</div>
+		</div>
+		
+		<table class="w-full sm:text-xl">
+			{% for faq in faq %}
+				<tr class="border-slate-300 border-t flex items-start py-6 flex flex-col sm:flex-row">
+					<td class="text-lg sm:text-2xl sm:text-xl font-bold text-slate-800  w-full sm:w-1/3 sm:pl-4 pb-2 sm:pb-0 sm:py-8">
+						{{faq.question}}
+					</td>
+					<td class="w-full sm:w-2/3 sm:pl-6 sm:py-8">
+						{{faq.answer}}
+					</td>
+				</tr>
+			{% endfor %}
+			
+		 </table>	
+		
+		
+			{% jsonLdScript meta, 'faq', [] %}
+			
+	</article>
+
+</section>

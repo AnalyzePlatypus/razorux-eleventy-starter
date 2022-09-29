@@ -1,12 +1,12 @@
+require('dotenv').config();
+
 const Image = require("@11ty/eleventy-img");
 const htmlmin = require('html-minifier')
 
 const now = String(Date.now())
 
 const svgContents = require("eleventy-plugin-svg-contents");
-const criticalCss = require("eleventy-critical-css");
-
-require('dotenv').config();
+const schema = require("@quasibit/eleventy-plugin-schema");
 
 async function asyncMap(array, callback) {
   const results = [];
@@ -15,8 +15,6 @@ async function asyncMap(array, callback) {
   }
   return results;
 }
-
-const GAMES = require('./_data/games.json');
 
 // Custom plugins
 
@@ -111,29 +109,13 @@ async function getEleventyImage({src, alt, widths, cssSizes, hasTransparency = f
 }
 
 
-async function gameImagesListEmbed() {
-  const gameIDsAndImageURls = await asyncMap(GAMES, async function(g) {
-    return [
-      g.id,
-      await imageShortcode({
-        src: '/images/games/' + g.imageUrl,
-        alt: g.title,
-        widths: [576, 440, 288, 220, 160, 140],
-        cssSizes: '(max-width: 628px) 47w, 288px'
-      })
-    ]
-  })
-  
-  const dataObject = Object.fromEntries(gameIDsAndImageURls);
-  return JSON.stringify(dataObject);
-}
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./styles/tailwind.config.js')
   eleventyConfig.addWatchTarget('./styles/tailwind.css')
   
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
-  eleventyConfig.addNunjucksAsyncShortcode("gameImagesJsonEmbed", gameImagesListEmbed);
+
   
   eleventyConfig.addNunjucksShortcode("youtube",youtubeEmbed);
   eleventyConfig.addNunjucksShortcode("jsonEmbed",jsonEmbed);
@@ -141,23 +123,19 @@ module.exports = function (eleventyConfig) {
   
   eleventyConfig.addShortcode('version', function () { return now })
   
-  
-  eleventyConfig.addPassthroughCopy("images");
-  eleventyConfig.addPassthroughCopy({"public": '/'});
-  
   eleventyConfig.addPassthroughCopy({
     './node_modules/alpinejs/dist/cdn.js': './js/alpine.js',
     './node_modules/body-scroll-lock/lib/bodyScrollLock.min.js': './js/bodyScrollLock.js',
     './fonts': './fonts',
+    "./images": "./images",
+    "public": '/'
   })
   
-
   
   // if(process.env.ELEVENTY_PRODUCTION) eleventyConfig.addPlugin(criticalCss);
   
+  eleventyConfig.addPlugin(schema);
   eleventyConfig.addPlugin(svgContents);
-
-  
 
   eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
     if (

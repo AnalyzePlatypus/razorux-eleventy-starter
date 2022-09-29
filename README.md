@@ -1,42 +1,56 @@
-# eleventy-tailwindcss-alpinejs-starter by [Greg Wolanski](https://gregwolanski.com)
+# Eleventy Starter
 
-A starter repository showing how to build a website with the [Eleventy](https://www.11ty.dev), [Tailwind CSS](https://tailwindcss.com), and [Alpine.js](https://alpinejs.dev).
+My personal starter for [Eleventy](https://www.11ty.dev) sites.
 
-Learn more on CSS-Tricks: [An Eleventy Starter with Tailwind CSS and Alpine.js](https://css-tricks.com/eleventy-starter-with-tailwind-css-alpine-js/)
+Built-in
+* [Tailwind CSS](https://tailwindcss.com)
+* [Alpine.js](https://alpinejs.dev)
+* Phosphor icons
+
+Monitoring:
+* Fathom Analytics
+* Honeybadger
+* Fullstory
+
+
+
+Performance
+* 100% Lighthouse score
+* Optimized Font Loading (self-hosted Google Fonts)
+* Optimized Image loading (`<picture>` with `avif` & `webp`)
+* Cache-busting with `?=version`
+* Asset Retry
+* Optimized Netlify build time with the Netlify Cache plugin
+
+SEO ready
+* SEO ready with OpenGraph & Twitter meta tags
+* Open Graph image & Favicon ready
+* SEO with JSON-LD
+
+Embedding:
+* JSON embedding
+* YouTube embedding
+* ENV VAR embedding
+* SVG embedding
+
+
+
+
+
+
 
 ## Getting Started
 
-### 1. Clone this repository
+* Copy `.env.example`. Rename to `.env`, then fill out all values.
+* Generate Favicons with https://realfavicongenerator.net. Place the files in `/public`
+* Run fonts through https://google-webfonts-helper.herokuapp.com and add them to `/fonts`
+* 
 
-```
-git clone https://github.com/gregwolanski/eleventy-tailwindcss-alpinejs-starter.git my-website-name
-```
 
-### 2. Navigate to the directory
+## Thank You
 
-```
-cd my-website-name
-```
+* Original theme by [Greg Wolanski](https://gregwolanski.com)
 
-### 3. Install the dependencies
-
-```
-npm install
-```
-
-### 4. Run Eleventy
-
-```
-npm run start
-```
-
-## Author
-
-[Greg Wolanski](https://gregwolanski.com)
-
-## Troubleshooting
-
-[Windows](https://github.com/gregwolanski/eleventy-tailwindcss-alpinejs-starter/issues/3)
 
 ## License
 

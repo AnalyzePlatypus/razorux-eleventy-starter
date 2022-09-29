@@ -9,7 +9,7 @@
 }
 
 html {
-  background: theme(colors.blue.600);
+  background: theme(colors.slate.100);
 }
 
 
@@ -17,24 +17,6 @@ html {
   background: theme(colors.blue.600);
   color: theme(colors.white);
 }
-
-
-.game-grid {
-  display: grid;
-}
-
-@media screen and (min-width: 640px) {
-  .game-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-}
-
-@media screen and (max-width: 639px) {
-  .game-grid {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  }
-}
-
 
 .icon-10xl {
   height: 8rem;
@@ -92,10 +74,6 @@ html {
   height: 1rem;
 }
 
-.no-border-right:nth-child(2n) {
-  border: none;
-}
-
 .background-pulse {
   --gradient-ends: theme(colors.slate.300);
   --gradient-middle: theme(colors.slate.400);
@@ -118,14 +96,44 @@ html {
   }
 }
 
-.clip-path-caret-right {
-  --clip-top-right: 90%;
-  --clip-bottom-right: 90%;
-  clip-path: polygon(var(--clip-top-right) 0%, 100% 50%, var(--clip-bottom-right) 100%, 0% 100%, 0 50%, 0% 0%);
+.button {
+  @apply inline-block rounded-full border-2 border-transparent font-semibold cursor-pointer disabled:opacity-30 disabled:cursor-default;
+  /* hover:underline hover:decoration-2 disabled:hover:no-underline;  */
 }
 
-.clip-path-caret-left {
-  --clip-top-left: 10%;
-  --clip-bottom-left: 10%;
-  clip-path: polygon(100% 0, 100% 50%, 100% 100%, var(--clip-bottom-left) 100%, 0 50%,  var(--clip-top-left) 0%);
+.button.small {
+  @apply text-xs sm:text-sm py-0 px-2;
+}
+
+.button.medium {
+  @apply text-base py-1 px-4;
+}
+
+.button.large {
+  @apply text-lg sm:text-xl py-2 px-6;
+}
+
+.button.primary {
+  @apply bg-black text-white bg-opacity-80 hover:bg-opacity-100 disabled:hover:bg-opacity-80;
+}
+
+.button.secondary {
+  @apply bg-black text-black bg-opacity-10 hover:bg-opacity-20 disabled:hover:bg-opacity-10;
+}
+
+.button.tertiary {
+  @apply border-black border-opacity-10 hover:border-opacity-20 disabled:hover:border-opacity-10;
+}
+
+
+.button.primary.inverse {
+  @apply bg-white text-black bg-opacity-80 hover:bg-opacity-100 disabled:hover:bg-opacity-80;
+}
+
+.button.secondary.inverse {
+  @apply bg-white text-white bg-opacity-10 hover:bg-opacity-20 disabled:hover:bg-opacity-10;
+}
+
+.button.tertiary.inverse {
+  @apply border-white border-opacity-20 hover:border-opacity-30 disabled:hover:border-opacity-10;
 }

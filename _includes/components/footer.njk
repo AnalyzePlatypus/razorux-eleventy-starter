@@ -1,0 +1,41 @@
+<section class='w-full bg-gradient-to-t from-slate-100 to-slate-200 mt-12'>
+	<article class='max-w-6xl mx-auto py-12 sm:py-24 px-6 sm:px-0 flex-col-reverse sm:flex-row justify-between '>
+			<div>
+				<h3 class='text-4xl font-bold'>My Site Name</h3>
+				<p class="leading-tight mt-4 pb-4">© 2020-<span x-data='{}' x-text='new Date().getFullYear()'>2022</span> My Company, LLC.</br>All rights reserved.</p>
+				
+				<div class='flex mb-12'>
+					{% for link in socialLinks %}
+						<a href='{{ link.url }}'   {% if link.openInNewTab %} noopener target='_blank' {% endif %} class='inline-block text-slate-700 hover:text-slate-900 hover:bg-slate-300 bg-slate-200 p-2 rounded-full mr-2'>
+							{{ link.iconPath| svgContents("icon-lg") | safe }}
+						</a>
+					{% endfor %}
+				</div>
+		  </div>
+			
+			<div class="footer-links sm:mx-4 sm:mx-12 grid gap-4 grid-cols-1 sm:grid-cols-2 col-span-2">
+				{% for group in footerLinks %}
+					<div class="group first:pr-12 pb-12">
+						<h2 class="font-bold text-lg pb-2">{{ group.title }}</h2>
+						<ul>
+							{% for link in group.links %}
+								<li class='flex items-center w-full transition-all rounded-md hover:underline'>
+									<a href="{{ link.url }}"  {% if link.openInNewTab %} noopener target='_blank' {% endif %} class="{% if not link.badge %}  w-full {% endif %} py-2 sm:py-1">{{ link.title}}</a>
+									{% if link.badge %}
+										<div>
+											<span class='ml-2 bg-slate-300 rounded-full text-xs font-bold uppercase py-1 px-2 h-fit tracking-wide text-slate-800'>
+												{{ link.badge }}
+											</span>
+										</div>
+									{% endif %}
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				{% endfor %}
+			</div>
+
+		
+		
+	</article>
+</section>
