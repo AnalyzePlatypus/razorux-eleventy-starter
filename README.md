@@ -2,19 +2,17 @@
 
 My personal starter for [Eleventy](https://www.11ty.dev) sites.
 
-Built-in
+*Included libraries*
 * [Tailwind CSS](https://tailwindcss.com)
 * [Alpine.js](https://alpinejs.dev)
 * Phosphor icons
 
-Monitoring:
+*Monitoring:*
 * Fathom Analytics
 * Honeybadger
 * Fullstory
 
-
-
-Performance
+*Performance*
 * 100% Lighthouse score
 * Optimized Font Loading (self-hosted Google Fonts)
 * Optimized Image loading (`<picture>` with `avif` & `webp`)
@@ -35,7 +33,18 @@ Embedding:
 
 
 
+## To-do
+- [] Mobile Menu
+- [] Logo Cloud
+- [] Testimonial cloud
+- [] Section background images
+- [] Mailing list signup
+- [] Contact Us
+- [] Contact Form
 
+## Fix
+- [] Fix footer
+- [] Fix JSON-LD for FAQs (iy's in the front matter of `index.njk`)
 
 
 

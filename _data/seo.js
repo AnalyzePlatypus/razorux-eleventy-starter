@@ -11,5 +11,5 @@ module.exports = {
 		logoPath: '/logo.png',
 		logoHeight: '100',
 		logoWidth: '400'
-		}
+	}
 }

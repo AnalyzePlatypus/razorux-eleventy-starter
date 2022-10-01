@@ -14,7 +14,7 @@
 						{{faq.question}}
 					</td>
 					<td class="w-full sm:w-2/3 sm:pl-6 sm:py-8">
-						{{faq.answer}}
+						{{faq.answer | safe }}
 					</td>
 				</tr>
 			{% endfor %}
@@ -22,7 +22,7 @@
 		 </table>	
 		
 		
-			{% jsonLdScript meta, 'faq', [] %}
+			{# {% jsonLdScript meta, 'faq', [] %} #}
 			
 	</article>
 
