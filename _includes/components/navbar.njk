@@ -1,9 +1,9 @@
-<nav class='relative flex justify-between items-center w-full pr-3 sm:px-6 sm:py-3 bg-white bg-opacity-80 		backdrop-blur-xl z-20 {% if settings.header.sticky %} sticky top-0 {% endif%}'>
+<nav class='relative flex justify-between items-center w-full pr-2 sm:px-6 sm:py-3 bg-white bg-opacity-80 		backdrop-blur-xl z-20 {% if settings.header.sticky %} sticky top-0 {% endif%}'>
 	<button type='button' class='mr-4 sm:hidden p-3 opacity-80 hover:opacity-100 active:bg-slate-100'>
 	 {{ '/phosphor-icons/regular/list.svg' | svgContents("icon-lg") | safe }}
 	</button>
 	
-	<a href='/' class='text-2xl font-bold block center-transform-all sm:center-transform-none'>My Site Name<a>
+	<a href='/' class='text-xl sm:text-2xl font-bold block center-transform-all sm:center-transform-none'>{{ seo.title }}<a>
 	
 	{% for link in navlinks %}
 		<a href='{{ link.url }}' class='{{ link.cssClasses }} py-3 px-6 hover:underline'>

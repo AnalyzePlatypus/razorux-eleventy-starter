@@ -1,7 +1,7 @@
 {
-    "name": "Game Rental Catalog",
-    "short_name": "Game Catalog",
-    "description": "Explore our catalog of exclusive sports game offers for all ages!",
+    "name": "RazorUX Eleventy Starter",
+    "short_name": "11ty Starter",
+    "description": "Welcome to my new awesome site!",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -15,6 +15,6 @@
         }
     ],
     "theme_color": "#2563eb",
-    "background_color": "#eff6ff",
+    "background_color": "#fff",
     "display": "browser"
 }
