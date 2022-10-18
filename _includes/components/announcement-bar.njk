@@ -1,5 +1,10 @@
-<section>
-<a href='#' class='hover:underline inline-block w-full bg-black bg-opacity-80 text-white text-center py-2 text-sm'>
-	<span class='font-semibold'>Hey there!</span> Check out our cool new announcement! › 
-</a>
-</section> 
+{% if settings.announcementBar.enabled %}
+	<section>
+	<a href='{{ settings.announcementBar.url }}' class='hover:underline inline-block w-full bg-black bg-opacity-80 text-white text-center py-2 text-sm hover:bg-opacity-100'>
+		<span class='font-semibold'>
+			{{ settings.announcementBar.highlightedText }}
+		</span>
+		{{ settings.announcementBar.regularText }}
+	</a>
+	</section> 
+{% endif %}

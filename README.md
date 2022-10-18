@@ -34,11 +34,12 @@ Embedding:
 
 
 ## To-do
+- [x] Mobile Menu toggle
 - [] Mobile Menu
 - [] Logo Cloud
 - [] Testimonial cloud
 - [] Section background images
-- [] Mailing list signup
+- [x] Mailing list signup
 - [] Contact Us
 - [] Contact Form
 

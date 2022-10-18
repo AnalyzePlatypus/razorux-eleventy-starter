@@ -96,44 +96,62 @@ html {
   }
 }
 
-.button {
-  @apply inline-block rounded-full border-2 border-transparent font-semibold cursor-pointer disabled:opacity-30 disabled:cursor-default;
-  /* hover:underline hover:decoration-2 disabled:hover:no-underline;  */
+@layer components {
+
+  .button {
+    @apply inline-block rounded-full border-2 border-transparent font-semibold cursor-pointer disabled:opacity-30 disabled:cursor-default;
+    /* hover:underline hover:decoration-2 disabled:hover:no-underline;  */
+  }
+  
+  .button.small {
+    @apply text-xs sm:text-sm py-0 px-2;
+  }
+  
+  .button.medium {
+    @apply text-base py-1 px-4;
+  }
+  
+  .button.large {
+    @apply text-lg sm:text-xl py-2 px-6;
+  }
+  
+  .button.primary {
+    @apply bg-black text-white bg-opacity-80 hover:bg-opacity-100 disabled:hover:bg-opacity-80;
+  }
+  
+  .button.secondary {
+    @apply bg-black text-black bg-opacity-10 hover:bg-opacity-20 disabled:hover:bg-opacity-10;
+  }
+  
+  .button.tertiary {
+    @apply border-black border-opacity-10 hover:border-opacity-20 disabled:hover:border-opacity-10;
+  }
+  
+  
+  .button.primary.inverse {
+    @apply bg-white text-black bg-opacity-80 hover:bg-opacity-100 disabled:hover:bg-opacity-80;
+  }
+  
+  .button.secondary.inverse {
+    @apply bg-white text-white bg-opacity-10 hover:bg-opacity-20 disabled:hover:bg-opacity-10;
+  }
+  
+  .button.tertiary.inverse {
+    @apply border-white border-opacity-20 hover:border-opacity-30 disabled:hover:border-opacity-10;
+  }
+  
+  .center-transform-all {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .center-transform-none {
+    position: static;
+    top: none;
+    left: none;
+    transform: none;
+  }
 }
 
-.button.small {
-  @apply text-xs sm:text-sm py-0 px-2;
-}
-
-.button.medium {
-  @apply text-base py-1 px-4;
-}
-
-.button.large {
-  @apply text-lg sm:text-xl py-2 px-6;
-}
-
-.button.primary {
-  @apply bg-black text-white bg-opacity-80 hover:bg-opacity-100 disabled:hover:bg-opacity-80;
-}
-
-.button.secondary {
-  @apply bg-black text-black bg-opacity-10 hover:bg-opacity-20 disabled:hover:bg-opacity-10;
-}
-
-.button.tertiary {
-  @apply border-black border-opacity-10 hover:border-opacity-20 disabled:hover:border-opacity-10;
-}
-
-
-.button.primary.inverse {
-  @apply bg-white text-black bg-opacity-80 hover:bg-opacity-100 disabled:hover:bg-opacity-80;
-}
-
-.button.secondary.inverse {
-  @apply bg-white text-white bg-opacity-10 hover:bg-opacity-20 disabled:hover:bg-opacity-10;
-}
-
-.button.tertiary.inverse {
-  @apply border-white border-opacity-20 hover:border-opacity-30 disabled:hover:border-opacity-10;
-}
