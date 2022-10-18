@@ -4,7 +4,7 @@
 
 @layer utilities {
   .change {
-    color: black;
+    color: slate-600;
   }
 }
 
@@ -120,7 +120,7 @@ html {
   }
   
   .button.secondary {
-    @apply bg-black text-black bg-opacity-10 hover:bg-opacity-20 disabled:hover:bg-opacity-10;
+    @apply bg-black text-slate-600 bg-opacity-10 hover:bg-opacity-20 disabled:hover:bg-opacity-10;
   }
   
   .button.tertiary {
@@ -129,7 +129,7 @@ html {
   
   
   .button.primary.inverse {
-    @apply bg-white text-black bg-opacity-80 hover:bg-opacity-100 disabled:hover:bg-opacity-80;
+    @apply bg-white text-slate-600 bg-opacity-80 hover:bg-opacity-100 disabled:hover:bg-opacity-80;
   }
   
   .button.secondary.inverse {

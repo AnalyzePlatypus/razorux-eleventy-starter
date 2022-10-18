@@ -8,6 +8,13 @@ const now = String(Date.now())
 const svgContents = require("eleventy-plugin-svg-contents");
 const schema = require("@quasibit/eleventy-plugin-schema");
 
+const nbspFilter = require('eleventy-nbsp-filter')
+ 
+const numberOfWordsToJoin = 5
+const maxLength = 10
+
+
+
 async function asyncMap(array, callback) {
   const results = [];
   for (let index = 0; index < array.length; index++) {
@@ -110,16 +117,19 @@ async function getEleventyImage({src, alt, widths, cssSizes, hasTransparency = f
 
 
 
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('./styles/tailwind.config.js')
   eleventyConfig.addWatchTarget('./styles/tailwind.css')
   
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
 
+  eleventyConfig.addFilter('nbsp', nbspFilter(numberOfWordsToJoin, maxLength))
   
   eleventyConfig.addNunjucksShortcode("youtube",youtubeEmbed);
   eleventyConfig.addNunjucksShortcode("jsonEmbed",jsonEmbed);
   eleventyConfig.addNunjucksShortcode("env", envEmbed);
+  
   
   eleventyConfig.addShortcode('version', function () { return now })
   
