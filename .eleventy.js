@@ -9,6 +9,8 @@ const svgContents = require("eleventy-plugin-svg-contents");
 const schema = require("@quasibit/eleventy-plugin-schema");
 
 const nbspFilter = require('eleventy-nbsp-filter')
+const emojiReadTime = require("@11tyrocks/eleventy-plugin-emoji-readtime");
+const pluginPWA = require("eleventy-plugin-pwa");
  
 const numberOfWordsToJoin = 5
 const maxLength = 10
@@ -124,12 +126,14 @@ module.exports = function (eleventyConfig) {
   
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
 
-  eleventyConfig.addFilter('nbsp', nbspFilter(numberOfWordsToJoin, maxLength))
+  eleventyConfig.addFilter('nbsp', nbspFilter(numberOfWordsToJoin, maxLength));
+  eleventyConfig.addPlugin(emojiReadTime);
   
   eleventyConfig.addNunjucksShortcode("youtube",youtubeEmbed);
   eleventyConfig.addNunjucksShortcode("jsonEmbed",jsonEmbed);
   eleventyConfig.addNunjucksShortcode("env", envEmbed);
   
+  // eleventyConfig.addPlugin(pluginPWA);
   
   eleventyConfig.addShortcode('version', function () { return now })
   

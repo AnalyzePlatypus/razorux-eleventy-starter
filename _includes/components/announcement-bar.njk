@@ -1,10 +1,17 @@
 {% if settings.announcementBar.enabled %}
-	<section>
-	<a href='{{ settings.announcementBar.url }}' class='hover:underline inline-block w-full bg-black bg-opacity-90 text-white text-center py-2 text-sm'>
-		<span class='font-semibold'>
-			{{ settings.announcementBar.highlightedText }}
-		</span>
-		{{ settings.announcementBar.regularText }}
-	</a>
+	<section class='flex flex-row bg-black bg-opacity-90 text-white'>
+		<a href='{{ settings.announcementBar.url }}' class='hover:underline inline-block w-full  text-center py-2 text-sm'>
+			<span class='font-semibold'>
+				{{ settings.announcementBar.highlightedText }}
+			</span>
+			{{ settings.announcementBar.regularText }}
+		</a>
+		
+		{% if settings.announcementBar.closable %}
+			<button type='button' class='fill-white opacity-60 px-2 hover:bg-slate-900 hover:opacity-90'>
+				{{ '/phosphor-icons/regular/x.svg' | svgContents("icon-sm") | safe }}
+			</button>
+		{% endif %}
+		
 	</section> 
 {% endif %}

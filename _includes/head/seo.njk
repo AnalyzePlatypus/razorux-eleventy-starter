@@ -1,7 +1,14 @@
+<!-- Generator -->
+<meta name="generator" content="eleventy">
+
 <title>{{ title or seo.title }}</title>
+
+<meta name="title" content="{{ title or seo.title }}">
 <meta name="description" content="{{ description or seo.description }}">
+<meta name="author" content="{{ author or seo.title}}">
 <meta name="image" content="{{seo.imagePath}}" />
 
+<!-- Colors -->
 <meta name="theme-color" content="{{ seo.themeColor }}">
 <meta name="msapplication-TileColor" content="{{ seo.themeColor }}">
 
@@ -23,12 +30,18 @@
 
 <!-- Icons -->
 <link rel="apple-touch-icon" href="{{seo.appleTouchIconPath}}">
-
 <link rel="apple-touch-icon" sizes="180x180" href="{{seo.appleTouchIconPath}}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{seo.favicon32Path}}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{seo.favicon16Path}}">
 
+<!-- Web manifest -->
 <link rel="manifest" href="/site.webmanifest">
+
+<!-- Canonical link -->
+{# See https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls #}
+{% if canonicalUrl %}
+	<link rel="canonical" href="{{ canonicalUrl }}">
+{% endif %}
 
 
 {# {% jsonLdScript seo, 'website' %} #}

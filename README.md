@@ -32,6 +32,7 @@ My personal starter for [Eleventy](https://www.11ty.dev) sites.
 
 *Eleventy Plugins*
 * [`nbsp`](https://github.com/jeremenichelli/eleventy-nbsp-filter#readme) filter
+* [Emoji Read Time](https://github.com/5t3ph/eleventy-plugin-emoji-readtime)
 
 *Monitoring:*
 * [Fathom Analytics](http://usefathom.com) privacy-respecting analytics
@@ -72,9 +73,13 @@ My personal starter for [Eleventy](https://www.11ty.dev) sites.
 - [ ] Blog page
 - [ ] Search
 
+## Someday
+
+- [ ] [Service Worker?](https://www.npmjs.com/package/eleventy-plugin-pwa)
+
 
 ### Other
-- [ ] Auto-updating copyright year
+- [x] Auto-updating copyright year
 
 
 ## Getting Started
@@ -82,7 +87,12 @@ My personal starter for [Eleventy](https://www.11ty.dev) sites.
 1. Copy `.env.example`. Rename to `.env`, then fill out all values.
 2. Generate Favicons with https://realfavicongenerator.net. Place the files in `/public`
 3. Run fonts through https://google-webfonts-helper.herokuapp.com and add them to `/fonts`
-4. 
+
+## Other features
+
+### Canonical URLs
+
+To add a [canonical URL](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls) to a blog post, add the `canonicalUrl` property to your front matter.
 
 
 ## Thank You

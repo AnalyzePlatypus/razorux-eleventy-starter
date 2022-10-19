@@ -99,12 +99,12 @@ html {
 @layer components {
 
   .button {
-    @apply inline-block rounded-full border-2 border-transparent font-semibold cursor-pointer disabled:opacity-30 disabled:cursor-default;
+    @apply inline-block rounded-full border-2 border-transparent font-semibold cursor-pointer disabled:opacity-30 disabled:cursor-default hover:underline;
     /* hover:underline hover:decoration-2 disabled:hover:no-underline;  */
   }
   
   .button.small {
-    @apply text-xs sm:text-sm py-0 px-2;
+    @apply text-sm sm:text-sm py-0.5 px-2;
   }
   
   .button.medium {
@@ -120,7 +120,7 @@ html {
   }
   
   .button.secondary {
-    @apply bg-black text-slate-600 bg-opacity-10 hover:bg-opacity-20 disabled:hover:bg-opacity-10;
+    @apply bg-black text-black bg-opacity-5 hover:bg-opacity-10 disabled:hover:bg-opacity-10;
   }
   
   .button.tertiary {

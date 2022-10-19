@@ -16,8 +16,8 @@
 		"cssClasses": "hidden sm:block button primary medium"
 	},
 	{
-		"label": "Try Free ›",
+		"label": "Try ›",
 		"url": "/#cta",
-		"cssClasses": "sm:hidden button primary medium"
+		"cssClasses": "sm:hidden button primary small"
 	}
 ]

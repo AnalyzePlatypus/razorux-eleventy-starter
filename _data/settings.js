@@ -6,6 +6,8 @@ module.exports = {
 		enabled: true,
 		highlightedText: 'Hey there!',
 		regularText: 'Check out our cool new announcement! ›',
-		url: "#"
+		url: "#",
+		closable: false,
+		onCloseSetLocalStorageToken: "announcementClosed-61728"
 	}
 }
