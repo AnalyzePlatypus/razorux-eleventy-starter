@@ -10,6 +10,7 @@ const schema = require("@quasibit/eleventy-plugin-schema");
 
 const nbspFilter = require('eleventy-nbsp-filter')
 const emojiReadTime = require("@11tyrocks/eleventy-plugin-emoji-readtime");
+const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const pluginPWA = require("eleventy-plugin-pwa");
  
 const numberOfWordsToJoin = 5
@@ -142,6 +143,7 @@ module.exports = function (eleventyConfig) {
     './node_modules/body-scroll-lock/lib/bodyScrollLock.min.js': './js/bodyScrollLock.js',
     './fonts': './fonts',
     "./images": "./images",
+    "./node_modules/quicklink/dist/quicklink.umd.js": "./js/quicklink.js",
     "public": '/'
   })
   
@@ -150,6 +152,20 @@ module.exports = function (eleventyConfig) {
   
   eleventyConfig.addPlugin(schema);
   eleventyConfig.addPlugin(svgContents);
+  
+  eleventyConfig.addPlugin(sitemap, {
+    // Name of the property for the last modification date.
+    // By default it is undefined and the plugin will fallback to `date`.
+    // When set, the plugin will try to use this property and it will fallback
+    // to the `date` property when needed.
+    // lastModifiedProperty: "modified",
+  
+    sitemap: {
+      // Options for SitemapStream. See https://github.com/ekalinin/sitemap.js/blob/master/api.md#sitemapstream
+      // Hostname is needed when the URLs of the items don't include it.
+      hostname: "https://example.com",
+    },
+  });
 
   eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
     if (

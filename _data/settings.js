@@ -9,5 +9,8 @@ module.exports = {
 		url: "#",
 		closable: false,
 		onCloseSetLocalStorageToken: "announcementClosed-61728"
+	},
+	legal: {
+		siteStartYear: "2020"
 	}
 }

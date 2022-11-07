@@ -11,8 +11,11 @@ My personal starter for [Eleventy](https://www.11ty.dev) sites.
 * Optimized Font Loading (self-hosted Google Fonts)
 * Optimized Image loading (`<picture>` with `avif` & `webp`)
 * Cache-busting with `?=version`
-* Asset Retry
 * Optimized Netlify build time with the Netlify Cache plugin
+* [Quicklink](https://github.com/GoogleChromeLabs/quicklink)
+
+*Robustness*
+* Asset Retry
 
 *SEO ready*
 * SEO ready with OpenGraph & Twitter meta tags
@@ -80,13 +83,16 @@ My personal starter for [Eleventy](https://www.11ty.dev) sites.
 
 ### Other
 - [x] Auto-updating copyright year
+- [x] Open Graph image
+- [x] Favicons
 
 
 ## Getting Started
 
 1. Copy `.env.example`. Rename to `.env`, then fill out all values.
 2. Generate Favicons with https://realfavicongenerator.net. Place the files in `/public`
-3. Run fonts through https://google-webfonts-helper.herokuapp.com and add them to `/fonts`
+3. Run fonts through https://google-webfonts-helper.herokuapp.com and add them to `/fonts`.
+Then update `styles/tailwind.config.js` to use the new font.
 
 ## Other features
 

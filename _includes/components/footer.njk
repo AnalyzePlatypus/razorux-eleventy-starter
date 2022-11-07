@@ -1,8 +1,8 @@
 <section class='w-full bg-gradient-to-t from-slate-100 to-slate-200 mt-12'>
 	<article class='max-w-6xl mx-auto py-12 sm:py-24 px-6 flex flex-col-reverse sm:flex-row justify-between '>
 			<div class='flex flex-col items-center text-center'>
-				<h3 class='text-4xl font-bold'>My Site Name</h3>
-				<p class="leading-tight opacity-60 mt-4 pb-4">© 2020-<span x-data='{}' x-text='new Date().getFullYear()'>2023</span> My Company, LLC.</br>All rights reserved.</p>
+				<h3 class='text-4xl font-bold'>{{ seo.title }}</h3>
+				<p class="leading-tight opacity-60 mt-4 pb-4">© {{ settings.legal.siteStartYear }}-<span x-data='{}' x-text='new Date().getFullYear()'>2023</span> My Company, LLC.</br>All rights reserved.</p>
 				
 				<div class='flex mb-12'>
 					{% for link in socialLinks %}

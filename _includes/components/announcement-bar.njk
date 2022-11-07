@@ -8,7 +8,11 @@
 		</a>
 		
 		{% if settings.announcementBar.closable %}
-			<button type='button' class='fill-white opacity-60 px-2 hover:bg-slate-900 hover:opacity-90'>
+			<button type='button' class='fill-white opacity-60 px-2 hover:bg-slate-900 hover:opacity-90' x-data="{
+				dismiss() {
+					
+				}
+			}>
 				{{ '/phosphor-icons/regular/x.svg' | svgContents("icon-sm") | safe }}
 			</button>
 		{% endif %}
