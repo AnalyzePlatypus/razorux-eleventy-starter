@@ -1,0 +1,79 @@
+---
+title: Page not found
+description: We couldn't find that page. Send us an error report, or return to our homepage.
+layout: default
+permalink: 404.html
+eleventyExcludeFromCollections: true
+---
+
+<script>
+	document.addEventListener('alpine:init',  function () {
+		Alpine.data('notFoundApp',  function () {
+			return {
+				url: "",
+				get contactLink() {
+					return "mailto:{% env "BROKEN_LINK_REPORT_EMAIL_ADDRESS" %}?subject=Broken%20link%20report%20-%20" + this.url
+				}
+			}
+		});
+	});
+</script>
+
+<script>
+	function report404() {
+		console.log('🌀 Reporting 404 error...');
+		window.Honeybadger?.notify(
+			`404 Not Found: ${window.location.href}`
+		);
+		console.log('✅ Done');
+	}
+	
+	if(document.readyState === 'complete') {
+		console.log('Document already ready');
+		report404();
+	} else {
+		console.log('Document not ready, setting event');
+		window.addEventListener('load', report404);
+	}
+</script>
+
+<div class='bg-gradient-to-b from-white to-brand-100'>
+	<section
+		x-data='notFoundApp'
+		x-init='url = window.location.href'
+		class="p-32 max-w-6xl mx-auto py-12 sm:py-36 px-6 flex flex-row justify-between items-center">
+			<div class='max-w-md'>
+				<p class='font-mono uppercase tracking-wide text-slate-500 font-semibold text-sm'>
+					404 Not Found
+				</p>
+				<h1 class="text-5xl sm:text-6xl mb-4 font-bold brand-gradient-text">Hmm, didn't find that.</h1>
+				<p class=''>We tried looking for:</p>
+				<code class='font-semibold' x-text='url'></code>
+			
+				<p class='block mb-4 mt-6'>But there was nothing there.</p>
+				
+				<p class='mb-6'> This is either because the <span class='font-semibold'>link was broken</span>, or the page has been <span class='font-semibold'>moved or deleted</span>.</p>
+				
+				
+				
+				
+				<div class='flex flex-col sm:flex-row mt-3'>
+					<a href='/' class='button primary medium w-full sm:w-fit mr-3 mb-3 sm:mb-0 text-center'>
+						‹ Back to Home
+					</a>
+					<a :href='contactLink' class='button tertiary medium w-full sm:w-fit text-center'>Help us fix it › </a>
+				</div>
+			</div>
+			
+			<div>
+				<!-- Image goes here --> 
+			</div>
+	</section>
+	
+	<script>
+		// Automatically report the 404 error
+		window.addEventListener('load', (event) => {
+			window.fathom?.trackGoal('CQLZNTXN', 0);
+		});
+	</script>
+</div>

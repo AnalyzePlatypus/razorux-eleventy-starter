@@ -10,6 +10,7 @@
     "@quasibit/eleventy-plugin-schema": "^1.10.0",
     "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
     "alpinejs": "^3.7.0",
+    "aos": "^2.3.4",
     "body-scroll-lock": "^4.0.0-beta.0",
     "dotenv": "^16.0.2",
     "eleventy-nbsp-filter": "^0.1.0",
@@ -18,8 +19,10 @@
     "google-spreadsheet": "^3.3.0",
     "html-minifier": "^4.0.0",
     "netlify-plugin-cache": "^1.0.3",
+    "node-fetch": "^3.3.0",
     "papaparse": "^5.3.2",
     "quicklink": "^2.3.0",
-    "tailwindcss": "^3.1.2"
+    "tailwindcss": "^3.1.2",
+    "vanilla-cookieconsent": "^2.8.9"
   }
 }

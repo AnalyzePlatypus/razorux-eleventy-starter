@@ -43,11 +43,17 @@ My personal starter for [Eleventy](https://www.11ty.dev) sites.
 * [Fullstory](https://www.fullstory.com) simulated video monitoring
 
 
+## Launch checklist
+
+* Set up [Honeybadger deploy tracking](https://docs.honeybadger.io/lib/javascript/guides/tracking-deploys/)
+
 
 ## To-do
 - [ ] Update `site.webmanifest` from `seo.json`
 - [ ] Fix footer
 - [ ] Fix JSON-LD for FAQs (iy's in the front matter of `index.njk`)
+
+
 
 ## Components
 - [x] Hero

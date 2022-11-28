@@ -42,7 +42,7 @@
 <!-- Canonical link -->
 {# See https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls #}
 {% if canonicalUrl %}
-	<link rel="canonical" href="{{ canonicalUrl }}">
+	<link rel="canonical" href="{{ canonicalUrl or seo.canonicalUrl }}">
 {% endif %}
 
 

@@ -14,21 +14,34 @@
     
     
     {% block head %}{% endblock %}
-    <script defer src="/js/alpine.js?v={% version %}"></script>
-    <script defer src="/js/bodyScrollLock.js?v={% version %}"></script>
-    <script defer src="/js/quicklink.js?v={% version %}"></script>
     
-    <meta name='node_env' content='{% env "NODE_ENV" %}'>
-    
-    {% include 'head/fonts.njk' %} 
-    {% include 'head/seo.njk' %} 
-    
-    {% include 'head/honeybadger.njk' %} 
-    {% include 'head/fathom.njk' %} 
-    {# {% include 'head/fullstory.njk' %}  #}
-    
-    {% include 'head/assets-retry.njk' %} 
-    {% include 'head/swiped-events.njk' %} 
+   <script defer src="/js/alpine.js?v={% version %}"></script>
+   <script defer src="/js/bodyScrollLock.js?v={% version %}"></script>
+   <script defer src="/js/quicklink.js?v={% version %}"></script>
+   
+   <meta name='node_env' content='{% env "NODE_ENV" %}'>
+   
+   {% include 'head/fonts.njk' %} 
+   {% include 'head/seo.njk' %} 
+   {# {% include 'head/cookie-consent.njk' %}  #}
+   
+   {% include 'head/honeybadger.njk' %} 
+   {% include 'head/fathom.njk' %} 
+   {# {% include 'head/fullstory.njk' %}  #}
+   
+   {% include 'head/assets-retry.njk' %} 
+   
+   {# {% include 'head/swiped-events.njk' %}  #}
+   {# {% include 'head/aos.njk' %}  #}
+   {# {% include 'head/rellax.njk' %}  #}
+   
+   {# {% if glideEnabled %} {% include 'head/glide.njk' %} {% endif %} #}
+   
+   {% include 'head/client-html-inject.njk' %} 
+   
+   <script>
+     console.log('👋 Hey there!\nThis is a custom Eleventy theme, built 🛠 by RazorUX\nSay hi at https://razorux.com or on https://twitter.com/RazorUX')
+   </script>
     
   </head>
   <body>

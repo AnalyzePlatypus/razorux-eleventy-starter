@@ -1,0 +1,83 @@
+<!-- Glide slider library -->
+<!-- To use, first run npm install @glidejs/glide -->
+
+<!-- Documentation here: https://glidejs.com/docs/options/ -->
+
+<!---Deferred CSS load -->
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/glide.core.min.css">
+{# <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/glide.theme.min.css"> #}
+
+<!---Fallback if JS is disabled -->
+<noscript>
+	<link rel="stylesheet" href="/glide.core.min.css?v={% version %}">
+	{# <link rel="stylesheet" href="/glide.theme.min.css?v={% version %}"> #}
+</noscript>
+
+<script defer src="/js/glide.min.js?v={% version %}"></script>
+
+<script>
+	window.addEventListener('load', () => {
+		new Glide('.glide',{
+			type: "slider", // 'carousel'
+			startAt: 1,
+			perView: 1, // - A number of visible slides
+			focusAt: 'center', //- Focus currently active slide at a specified position
+			gap: 16, //- A size of the space between slides
+			autoplay: 2500, //- Change slides after a specified interval
+			hoverpause: false, // - Stop autoplay on mouseover
+			// keyboard - Change slides with keyboard arrows
+			// bound - Stop running perView number of slides from the end
+			// swipeThreshold - Minimal swipe distance needed to change the slide
+			// dragThreshold - Minimal mousedrag distance needed to change the slide
+			// perTouch - A maximum number of slides moved per single swipe or drag
+			// touchRatio - Alternate moving distance ratio of swiping and dragging
+			// touchAngle - Angle required to activate slides moving
+			animationDuration: 1000, // - Duration of the animation
+			rewind: true,// - Allow looping the slider type
+			// rewindDuration - Duration of the rewinding animation
+			// animationTimingFunc - Easing function for the animation
+			// direction - Moving direction mode
+			peek: { before: 50, after: 50 },// - The value of the future viewports which have to be visible in the current view
+			breakpoints: {
+				640: { // sm
+					startAt: 0,
+					perView: 1,
+					autoplay: 2000,
+					peek: { before: 50, after: 50 },
+				},
+				768: { // md
+					startAt: 1,
+					perView: 2,
+					autoplay: 2500,
+					peek: { before: 50, after: 50 },
+				},
+				1024: { //lg
+					startAt: 0,
+					perView: 2,
+					peek: { before: 100, after: 100 },
+				},
+				1280: { // xl
+					startAt: 2,
+					perView: 2,
+					peek: { before: 100, after: 100 },
+				},
+				1536: { // 2xl
+					startAt: 2,
+					perView: 2,
+					peek: { before: 100, after: 100 },
+				},
+				5000: { // 2xl
+					startAt: 2,
+					perView: 3,
+					peek: { before: 100, after: 100 },
+				}
+			},
+			// classes - Collection of used HTML classes
+			// throttle - T
+		}).mount()
+		
+		Array.from(document.querySelectorAll('[x-glide-hide-before-init]')).forEach(elem => {
+			elem.attributes.removeNamedItem('x-glide-hide-before-init');
+		});
+	})
+</script>
