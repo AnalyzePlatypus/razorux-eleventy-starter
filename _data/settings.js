@@ -11,6 +11,7 @@ module.exports = {
 		onCloseSetLocalStorageToken: "announcementClosed-61728"
 	},
 	legal: {
+		companyName: "My Company, LLC",
 		siteStartYear: "2020"
 	}
 }

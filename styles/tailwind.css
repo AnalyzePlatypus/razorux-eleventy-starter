@@ -18,6 +18,11 @@ html {
   color: theme(colors.white);
 }
 
+.overflow-hidden.rounded-full {
+  /* Fix for this bug in Safari  https://stackoverflow.com/a/58283449/6068782 */
+  isolation: isolate;
+}
+
 .icon-10xl {
   height: 8rem;
 }

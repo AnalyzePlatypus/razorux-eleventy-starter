@@ -1,7 +1,23 @@
-<nav class='relative flex justify-between items-center w-full pr-2 sm:px-6 sm:py-3 bg-white bg-opacity-80 		backdrop-blur-xl z-20 {% if settings.header.sticky %} sticky top-0 {% endif%}'>
-	<button type='button' class='mr-4 sm:hidden p-3 opacity-80 hover:opacity-100 active:bg-slate-100'>
+<nav 
+x-data="{ expanded: false }"
+x-init="$watch('expanded', (isOpening) => {
+	isOpening ? bodyScrollLock.disableBodyScroll($root) : bodyScrollLock.clearAllBodyScrollLocks()
+})"
+@click.outside='expanded = false'
+class='relative flex justify-between items-center w-full pr-2 sm:px-6 sm:py-3 bg-white bg-opacity-80 		backdrop-blur-xl z-20 {% if settings.header.sticky %} sticky top-0 {% endif%}' >
+
+	<button
+		type='button'
+		class='mr-4 sm:hidden p-3 opacity-80 hover:opacity-100 active:bg-slate-100'
+		@click="expanded = ! expanded"
+		role="button"
+		aria-label="Menu"
+		:aria-expanded="expanded"
+		>
 	 {{ '/phosphor-icons/regular/list.svg' | svgContents("icon-lg") | safe }}
 	</button>
+	
+	
 	
 	<a href='/' class='text-xl sm:text-2xl font-bold block center-transform-all sm:center-transform-none'>{{ seo.title }}<a>
 	
@@ -11,4 +27,6 @@
 		</a>
 	{% endfor %}
 	
+	{% include 'components/mobile-menu.njk'%}	
 </nav>
+

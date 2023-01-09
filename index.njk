@@ -27,10 +27,7 @@ meta:
 {% extends "_includes/default.njk" %}
 
 {% block content %}
-   <main class='h-full relative min-h-screen bg-slate-100'> 
-      {% include 'components/app.njk'%}
-      {% include 'components/announcement-bar.njk'%}
-      {% include 'components/navbar.njk'%}
+   <main class='h-full relative min-h-screen bg-slate-100'>     
       {% include 'components/hero.njk'%}
       {# {% include 'components/kitchen-sink.njk' %} #}
       
@@ -39,7 +36,5 @@ meta:
       {% include 'components/faq.njk'%}
       {# {% include 'components/mailing-list.njk'%} #}
       {% include 'components/mailing-list-short.njk'%}
-      
-      {% include 'components/footer.njk'%}
    </main>
 {% endblock %}

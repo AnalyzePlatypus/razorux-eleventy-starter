@@ -9,13 +9,23 @@
 		
 		<table class="w-full sm:text-xl">
 			{% for faq in faq %}
-				<tr class="border-slate-300 border-t flex items-start py-6 flex flex-col sm:flex-row">
-					<td class="text-lg sm:text-2xl sm:text-xl font-bold text-slate-800  w-full sm:w-1/3 sm:pl-4 pb-2 sm:pb-0 sm:py-8">
+				<tr x-data='{ expanded: false }' class="border-slate-300 border-t flex items-start py-6 flex flex-col md:flex-row" @click='expanded = !expanded'>
+					<td class="text-lg sm:text-2xl sm:text-xl font-bold text-slate-800  w-full md:w-1/3 md:pl-4 md:pb-0 sm:py-8 pr-2 flex flex-row items-center justify-between">
 						{{faq.question}}
+						
+						<div class='md:hidden transition-all rotate-180' :class='{"rotate-0": expanded}'>
+						{{ '/phosphor-icons/regular/caret-up.svg' | svgContents("icon-lg opacity-30") | safe }}
+						</div>
 					</td>
-					<td class="w-full sm:w-2/3 sm:pl-6 sm:py-8">
+					<td class="w-full md:hidden md:pl-6 sm:py-8 pt-4 sm:pt-0" x-show="expanded" x-collapse>
 						{{faq.answer | safe }}
 					</td>
+					
+					<td class="hidden md:block w-full sm:w-2/3 sm:pl-6 sm:py-8">
+						{{faq.answer | safe }}
+					</td>
+					
+					
 				</tr>
 			{% endfor %}
 			

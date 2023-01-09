@@ -15,7 +15,11 @@
     
     {% block head %}{% endblock %}
     
+    
+   <script defer src="/js/alpinejs-focus.js?v={% version %}"></script>
+   <script defer src="/js/alpinejs-collapse.js?v={% version %}"></script>
    <script defer src="/js/alpine.js?v={% version %}"></script>
+   
    <script defer src="/js/bodyScrollLock.js?v={% version %}"></script>
    <script defer src="/js/quicklink.js?v={% version %}"></script>
    
@@ -44,9 +48,15 @@
    </script>
     
   </head>
-  <body>
+  <body class='relative min-h-screen flex flex-col items-stretch'>
+    {% include 'components/app.njk'%}
+    {% include 'components/announcement-bar.njk'%}
+    {% include 'components/navbar.njk'%}    
+    
     {% block content %}
       {{ content | safe }}
     {% endblock %}
+    
+    {% include 'components/footer.njk'%}
   </body>
 </html>

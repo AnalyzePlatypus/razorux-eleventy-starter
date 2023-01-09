@@ -7,6 +7,8 @@
     "@11ty/eleventy": "^1.0.0",
     "@11ty/eleventy-img": "^2.0.1",
     "@11tyrocks/eleventy-plugin-emoji-readtime": "^1.0.1",
+    "@alpinejs/collapse": "^3.10.5",
+    "@alpinejs/focus": "^3.10.5",
     "@quasibit/eleventy-plugin-schema": "^1.10.0",
     "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
     "alpinejs": "^3.7.0",
@@ -22,6 +24,7 @@
     "node-fetch": "^3.3.0",
     "papaparse": "^5.3.2",
     "quicklink": "^2.3.0",
+    "razorux-eleventy-tools": "^0.0.3",
     "tailwindcss": "^3.1.2",
     "vanilla-cookieconsent": "^2.8.9"
   }

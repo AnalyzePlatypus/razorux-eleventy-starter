@@ -51,7 +51,7 @@ My personal starter for [Eleventy](https://www.11ty.dev) sites.
 ## To-do
 - [ ] Update `site.webmanifest` from `seo.json`
 - [ ] Fix footer
-- [ ] Fix JSON-LD for FAQs (iy's in the front matter of `index.njk`)
+- [ ] Fix JSON-LD for FAQs (diy's in the front matter of `index.njk`)
 
 
 
@@ -61,15 +61,15 @@ My personal starter for [Eleventy](https://www.11ty.dev) sites.
 - [x] Sticky navbar
 - [x] Mega bullets
 - [x] Article CTA
-- [x] FAQ
+- [x] FAQ - [NEW] - collapsable on mobile!
 - [x] Footer
 - [x] Footer social links
 - [x] Footer links
 - [x] Footer link badges
 - [x] Mailing list signup
 - [x] Mobile Menu toggle
+- [x] Mobile Menu
 - [ ] Section background images
-- [ ] Mobile Menu
 - [ ] Navbar dropdown
 - [ ] Navbar mega dropdown
 - [ ] Slider with lightbox

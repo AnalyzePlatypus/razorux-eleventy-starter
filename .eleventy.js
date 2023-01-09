@@ -18,10 +18,12 @@ const pluginPWA = require("eleventy-plugin-pwa");
 
 const asyncMap = require('./scripts/util.js')
  
-const {jsonEmbed, envEmbed, youtubeEmbed, imageShortcode, getEleventyImage, fathomTrackClick} = require('./razorux-eleventy-custom-plugins');
+const {jsonEmbed, envEmbed, youtubeEmbed, imageShortcode, getEleventyImage, fathomTrackClick, link} = require('razorux-eleventy-tools');
  
 const numberOfWordsToJoin = 5
 const maxLength = 10
+
+const FATHOM_IDS = require('./_data/fathomIds')
 
 // Custom plugins
 
@@ -53,6 +55,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksShortcode("youtube",youtubeEmbed);
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
   eleventyConfig.addNunjucksShortcode("fathomTrackClick", fathomTrackClick);
+  eleventyConfig.addPairedNunjucksShortcode("link", link({
+    fathomIds: FATHOM_IDS
+  }));
   
   eleventyConfig.addNunjucksShortcode("markdownRender", markdownFilter);
   
@@ -61,6 +66,8 @@ module.exports = function (eleventyConfig) {
   
   eleventyConfig.addPassthroughCopy({
     './node_modules/alpinejs/dist/cdn.js': './js/alpine.js',
+    "./node_modules/@alpinejs/collapse/dist/cdn.min.js": './js/alpinejs-collapse.js',
+    './node_modules/@alpinejs/focus/dist/cdn.min.js': './js/alpinejs-focus.js',
     './node_modules/body-scroll-lock/lib/bodyScrollLock.min.js': './js/bodyScrollLock.js',
     // "./node_modules/@alpinejs/collapse/dist/cdn.min.js": './js/alpine-collapse.js',
     
