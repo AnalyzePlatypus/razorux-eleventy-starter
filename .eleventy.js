@@ -19,7 +19,9 @@ const pluginPWA = require("eleventy-plugin-pwa");
 const asyncMap = require('./scripts/util.js')
  
 const {jsonEmbed, envEmbed, youtubeEmbed, imageShortcode, getEleventyImage, fathomTrackClick, link} = require('razorux-eleventy-tools');
- 
+
+const { renderSection: sectionShortcode }  = require('./section.js');
+
 const numberOfWordsToJoin = 5
 const maxLength = 10
 
@@ -59,6 +61,8 @@ module.exports = function (eleventyConfig) {
     fathomIds: FATHOM_IDS
   }));
   
+  eleventyConfig.addPairedAsyncShortcode("section", sectionShortcode);
+  
   eleventyConfig.addNunjucksShortcode("markdownRender", markdownFilter);
   
   
@@ -71,7 +75,7 @@ module.exports = function (eleventyConfig) {
     './node_modules/body-scroll-lock/lib/bodyScrollLock.min.js': './js/bodyScrollLock.js',
     // "./node_modules/@alpinejs/collapse/dist/cdn.min.js": './js/alpine-collapse.js',
     
-    // "./node_modules/rellax/rellax.min.js": './js/rellax.min.js',
+    "./node_modules/rellax/rellax.min.js": './js/rellax.min.js',
     // 
     // './node_modules/aos/dist/aos.js': './js/aos.js',
     // './node_modules/aos/dist/aos.css': './aos.css',

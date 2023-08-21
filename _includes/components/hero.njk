@@ -1,10 +1,42 @@
-<section class='w-full bg-gradient-to-br from-slate-200 to-slate-300 shadow-inner'>
-	<article class='max-w-6xl mx-auto py-10 sm:py-24 px-6 flex flex-col items-center text-center'>
+{% section { 
+	id: 'hero-2',
+	background: { 
+		css: 'bg-slate-100 bg-gradient-to-br from-slate-200 to-slate-300 shadow-inner',
+		image: {
+			enabled: true,
+			url: '/images/backgrounds/white-abstract-2.jpg',
+			alt: 'Hexagons on a light background', 
+			opacity: 1,
+			css: 'object-cover scale-110',
+			attributes: 'rellax data-rellax-speed="-3"'
+		},
+		overlay: {
+			enabled: false,
+			css: 'bg-white',
+			opacity: 0.85
+		}
+	},
+	content: {
+		css: 'flex flex-col items-center text-center'
+	}
+} 
+%}
+
+		<p class='relative text-slate-500 bg-white/50 font-semibold rounded-full pl-6 pr-2 py-1.5 mb-3 shadow-xl/60 hover:shadow-xl/100 mb-6 flex items-center'>
+			<span>
+				Anouncing <span class='font-bold'>11ty Conf</span> in Seattle, WA
+			</span>
+			<a href='#' class='button primary small ml-3'> 
+				{{ '/phosphor-icons/bold/arrow-right-bold.svg' | svgContents("icon-sm fill-white") | safe }}
+			</a>
+		</p>
+		
 		<h1 class='text-4xl sm:text-7xl font-bold mb-3'>Welcome to Eleventy Starter!</h1>
 		<p class='sm:text-xl'>Check out the README to get started!</p>
-		<div class='mt-4'>
+		
+		<div class='mt-4 w-full sm:w-fit flex flex-row justify-between  sm:justify-start'>
 			{% link cta.primaryHeroCta %}{% endlink %}
 			{% link cta.secondaryHeroCta %}{% endlink %}
 		</div>
-	</article>
-</section>
+	
+{% endsection %}

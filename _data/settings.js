@@ -1,6 +1,6 @@
 module.exports = {
 	header: {
-		sticky: true
+		sticky: false
 	},
 	announcementBar: {
 		enabled: true,
@@ -8,7 +8,7 @@ module.exports = {
 		regularText: 'Check out our cool new announcement! ›',
 		url: "#",
 		closable: false,
-		onCloseSetLocalStorageToken: "announcementClosed-61728"
+		onCloseSetLocalStorageKey: "announcementClosed-61728"
 	},
 	legal: {
 		companyName: "My Company, LLC",

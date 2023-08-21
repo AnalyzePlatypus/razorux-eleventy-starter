@@ -1,0 +1,27 @@
+{% section { 
+	id: 'hero-2',
+	background: { 
+		css: 'bg-slate-100 bg-gradient-to-br from-slate-200 to-slate-300 shadow-inner',
+		image: {
+			enabled: false,
+			url: '/images/backgrounds/hexagon-background.jpg',
+			alt: 'Hexagons on a light background', 
+			opacity: 1,
+			css: 'object-cover -translate-y-64'
+		},
+		overlay: {
+			enabled: false,
+			css: 'bg-white',
+			opacity: 0.8
+		}
+	} 
+} %}
+
+	<h1 class='text-4xl sm:text-6xl font-bold mb-3 text-left'>Welcome to<br/>Eleventy Starter!</h1>
+	<p class='sm:text-xl'>Check out the README to get started!</p>
+	<div class='mt-4 flex flex-row justify-between  sm:justify-start'>
+		{% link cta.primaryHeroCta %}{% endlink %}
+		{% link cta.secondaryHeroCta %}{% endlink %}
+	</div>
+	
+{% endsection %}

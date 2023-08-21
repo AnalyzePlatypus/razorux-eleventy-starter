@@ -8,6 +8,31 @@
   }
 }
 
+:root {
+  --theme-light--color--text-level-1:  theme(colors.stone.900);
+  --theme-light--color--text-level-2:  theme(colors.stone.800);
+  --theme-light--color--text-level-3:  theme(colors.stone.700);
+  --theme-light--color--text-level-4:  theme(colors.stone.600);
+  --theme-light--color--text-level-5:  theme(colors.stone.500);
+  --theme-light--color--text-level-6:  theme(colors.stone.400);
+  --theme-light--color--text-level-7:  theme(colors.stone.300);
+  --theme-light--color--text-level-8:  theme(colors.stone.200);
+  --theme-light--color--text-level-9:  theme(colors.stone.100);
+  --theme-light--color--text-level-10:  theme(colors.stone.50);
+}
+
+.theme--light {
+  --theme--text-level-1: var(--theme-light--color--text-level-1);
+  --theme--text-level-2: var(--theme-light--color--text-level-2);
+  --theme--text-level-3: var(--theme-light--color--text-level-3);
+  --theme--text-level-4: var(--theme-light--color--text-level-4);
+  --theme--text-level-5: var(--theme-light--color--text-level-5);
+  --theme--text-level-6: var(--theme-light--color--text-level-6);
+  --theme--text-level-7: var(--theme-light--color--text-level-7);
+  --theme--text-level-8: var(--theme-light--color--text-level-8);
+  --theme--text-level-9: var(--theme-light--color--text-level-9);
+}
+
 html {
   background: theme(colors.slate.100);
 }
@@ -109,7 +134,7 @@ html {
   }
   
   .button.small {
-    @apply text-sm sm:text-sm py-0.5 px-2;
+    @apply text-sm sm:text-sm py-0.5 px-3;
   }
   
   .button.medium {
